@@ -281,14 +281,7 @@ footer{background:#fff;border-top:2.5px solid #1a1a1a;padding:16px 20px;}
 </div></footer>
 
 <script>
-var currentPath = window.location.href;
-document.querySelectorAll('.nav a').forEach(a=>{
-  if(currentPath.includes(a.getAttribute('href').replace('#',''))){
-    a.classList.add('act');
-  } else {
-    a.classList.remove('act');
-  }
-});
+
 </script>
 <script>window.addEventListener("scroll",function(){var m=document.querySelector(".masthead");if(window.scrollY>60){m.classList.add("shrunk")}else{m.classList.remove("shrunk")}});</script></body>
 </html>
