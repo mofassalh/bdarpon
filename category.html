@@ -339,5 +339,28 @@ footer{background:#fff;border-top:2.5px solid #1a1a1a;padding:16px 20px;}
   <div class="foot-links"><a href="about.html">সম্পর্কে</a><a href="contact.html">যোগাযোগ</a><a href="#">গোপনীয়তা</a></div>
 </div></footer>
 
-<script>window.addEventListener("scroll",function(){var m=document.querySelector(".masthead");if(window.scrollY>60){m.classList.add("shrunk")}else{m.classList.remove("shrunk")}});</script></body>
+<script>window.addEventListener("scroll",function(){var m=document.querySelector(".masthead");if(window.scrollY>60){m.classList.add("shrunk")}else{m.classList.remove("shrunk")}});</script>
+<script>
+var params = new URLSearchParams(window.location.search);
+var cat = params.get('cat');
+var cats = {
+  'bangladesh': 'বাংলাদেশ',
+  'diaspora': 'প্রবাসী',
+  'migration': 'অভিবাসন ও ভিসা',
+  'politics': 'রাজনীতি',
+  'economy': 'অর্থনীতি',
+  'crime': 'অপরাধ',
+  'sports': 'খেলাধুলা',
+  'world': 'বিশ্ব'
+};
+if(cat && cats[cat]){
+  document.querySelector('.cat-title').textContent = cats[cat];
+  document.title = cats[cat] + ' | বাংলা দর্পণ';
+  var navLinks = document.querySelectorAll('.nav a');
+  navLinks.forEach(function(a){
+    if(a.href.includes('cat='+cat)) a.classList.add('act');
+    else a.classList.remove('act');
+  });
+}
+</script></body>
 </html>
