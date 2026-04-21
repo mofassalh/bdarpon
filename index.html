@@ -291,24 +291,4 @@ document.querySelectorAll('.nav a').forEach(a=>{
 });
 </script>
 <script>window.addEventListener("scroll",function(){var m=document.querySelector(".masthead");if(window.scrollY>60){m.classList.add("shrunk")}else{m.classList.remove("shrunk")}});</script></body>
-</html><-- Categories
-insert into categories (name, slug, display_order) values
-('Burgers', 'burgers', 1),
-('Kebabs', 'kebabs', 2),
-('Wraps', 'wraps', 3),
-('Sides', 'sides', 4),
-('Drinks', 'drinks', 5);
-
--- Products
-insert into products (category_id, name, description, base_price, tags) values
-((select id from categories where slug='burgers'), 'Classic Angus Burger', 'Double Angus patty, cheddar, caramelised onion, house sauce', 15.90, '{popular}'),
-((select id from categories where slug='burgers'), 'Chicken Burger', 'Crispy fried chicken, slaw, pickles, sriracha mayo', 14.90, '{}'),
-((select id from categories where slug='burgers'), 'Veggie Burger', 'Grilled halloumi, roasted capsicum, rocket, aioli', 13.90, '{}'),
-((select id from categories where slug='kebabs'), 'Shish Kebab Plate', 'Tender marinated lamb skewers with rice, salad and garlic sauce', 16.90, '{popular}'),
-((select id from categories where slug='kebabs'), 'Doner Kebab Plate', 'Slow-cooked doner meat, fresh salad, hummus and pita', 15.90, '{}'),
-((select id from categories where slug='wraps'), 'Doner Kebab Wrap', 'Slow-cooked doner, fresh veggies, chilli and garlic sauce in lavash', 14.90, '{popular}'),
-((select id from categories where slug='wraps'), 'Chicken Shish Wrap', 'Grilled chicken, tabouleh, tzatziki in warm lavash', 13.90, '{}'),
-((select id from categories where slug='sides'), 'Loaded Cheese Fries', 'Crispy fries, melted cheese, jalapeños, sour cream', 9.90, '{}'),
-((select id from categories where slug='sides'), 'Garlic Bread', 'Toasted pide bread with garlic butter', 4.90, '{}'),
-((select id from categories where slug='drinks'), 'Soft Drink Can', 'Coke, Sprite, Fanta — your choice', 3.50, '{}'),
-((select id from categories where slug='drinks'), 'Ayran', 'Traditional Turkish yoghurt drink', 4.50, updated -->
+</html>
