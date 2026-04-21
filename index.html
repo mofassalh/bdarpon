@@ -283,7 +283,6 @@ footer{background:#fff;border-top:2.5px solid #1a1a1a;padding:16px 20px;}
 <script>
 document.querySelectorAll('.nav a').forEach(a=>{
   a.addEventListener('click',function(e){
-    e.preventDefault();
     document.querySelectorAll('.nav a').forEach(x=>x.classList.remove('act'));
     this.classList.add('act');
   });
