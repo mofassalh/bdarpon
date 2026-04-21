@@ -358,7 +358,9 @@ if(cat && cats[cat]){
   document.title = cats[cat] + ' | বাংলা দর্পণ';
   var navLinks = document.querySelectorAll('.nav a');
   navLinks.forEach(function(a){
-    if(a.href.includes('cat='+cat)) a.classList.add('act');
+    var aUrl = new URL(a.href);
+    var aCat = aUrl.searchParams.get('cat');
+    if(aCat === cat) a.classList.add('act');
     else a.classList.remove('act');
   });
 }
