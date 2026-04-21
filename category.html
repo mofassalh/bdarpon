@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>রাজনীতি | বাংলা দর্পণ</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hind Siliguri',sans-serif;background:#f7f4ef;color:#1a1a1a;font-size:14px;}
+a{text-decoration:none;color:inherit;}
+
+.topbar{background:#efece6;border-bottom:1px solid #e0dbd2;padding:5px 20px;font-size:10.5px;color:#999;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+.topbar b{color:#555;}
+
+.masthead{background:#fff;border-bottom:2.5px solid #1a1a1a;padding:14px 20px;}
+.mast-in{max-width:1140px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.logo{font-family:'Noto Serif Bengali',serif;font-size:36px;font-weight:900;color:#1a1a1a;line-height:1;}
+.tagline{font-size:10px;color:#bbb;margin-top:4px;letter-spacing:0.08em;}
+.srch{display:flex;align-items:center;border:1px solid #e0dbd2;border-radius:3px;overflow:hidden;background:#f7f4ef;}
+.srch input{border:none;background:transparent;padding:7px 12px;font-size:12px;font-family:'Hind Siliguri',sans-serif;outline:none;width:160px;color:#1a1a1a;}
+.srch button{background:#2c2c2a;border:none;color:#fff;padding:7px 11px;cursor:pointer;}
+
+.nav{background:#2c2c2a;overflow-x:auto;white-space:nowrap;}
+.nav-in{max-width:1140px;margin:0 auto;padding:0 20px;}
+.nav a{display:inline-block;color:#bbb;font-size:12.5px;padding:10px 14px;border-bottom:2px solid transparent;transition:color .15s;}
+.nav a:hover{color:#fff;}
+.nav a.act{color:#fff;border-bottom-color:#d4a857;}
+
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px;}
+
+/* CATEGORY HEADER */
+.cat-header{padding:20px 0 16px;border-bottom:2px solid #1a1a1a;margin-bottom:24px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.cat-title{font-family:'Noto Serif Bengali',serif;font-size:30px;font-weight:900;color:#1a1a1a;}
+.cat-count{font-size:11px;color:#bbb;letter-spacing:0.06em;}
+.cat-tabs{display:flex;gap:0;overflow-x:auto;}
+.cat-tab{padding:7px 14px;font-size:12px;color:#888;border:1px solid #e0dbd2;border-right:none;background:#fff;cursor:pointer;white-space:nowrap;transition:all .15s;}
+.cat-tab:first-child{border-radius:2px 0 0 2px;}
+.cat-tab:last-child{border-right:1px solid #e0dbd2;border-radius:0 2px 2px 0;}
+.cat-tab.act{background:#2c2c2a;color:#fff;border-color:#2c2c2a;}
+
+/* MAIN LAYOUT */
+.layout{display:grid;grid-template-columns:1fr 270px;gap:32px;padding-bottom:40px;}
+
+/* NEWS LIST */
+.news-list{}
+
+/* FEATURED TOP */
+.featured-card{background:#fff;border:1px solid #e8e4dc;border-radius:2px;padding:16px;margin-bottom:16px;display:grid;grid-template-columns:200px 1fr;gap:16px;cursor:pointer;}
+.featured-card:hover .fc-title{color:#8a6a2a;}
+.fc-thumb{width:200px;height:130px;background:#ede9e2;border-radius:2px;border:1px solid #e0dbd2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;flex-shrink:0;}
+.fc-thumb svg{opacity:0.18;}
+.fc-thumb-lbl{font-size:9px;letter-spacing:0.1em;color:#ccc;text-transform:uppercase;}
+.fc-body{}
+.fc-cat{font-size:9px;letter-spacing:0.12em;font-weight:700;color:#8a6a2a;text-transform:uppercase;margin-bottom:6px;}
+.fc-title{font-family:'Noto Serif Bengali',serif;font-size:18px;font-weight:700;line-height:1.4;color:#1a1a1a;margin-bottom:8px;transition:color .15s;}
+.fc-deck{font-size:12.5px;line-height:1.7;color:#666;margin-bottom:10px;}
+.fc-meta{font-size:10px;color:#bbb;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.fc-src{background:#f0ece6;padding:2px 7px;border-radius:2px;color:#888;font-size:9.5px;}
+.fc-ai{background:#f0ece6;padding:2px 7px;border-radius:2px;color:#8a6a2a;font-size:9px;border:1px solid #e8e4dc;}
+
+/* DIVIDER */
+.section-divider{font-size:9px;letter-spacing:0.18em;font-weight:700;color:#888;text-transform:uppercase;border-bottom:1px solid #e0dbd2;padding-bottom:6px;margin:20px 0 14px;}
+
+/* REGULAR NEWS GRID */
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+.news-card{background:#fff;border:1px solid #e8e4dc;border-radius:2px;padding:13px;cursor:pointer;}
+.news-card:hover .nc-title{color:#8a6a2a;}
+.nc-thumb{width:100%;height:100px;background:#ede9e2;border-radius:2px;border:1px solid #e0dbd2;display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.nc-thumb svg{opacity:0.18;}
+.nc-cat{font-size:9px;letter-spacing:0.1em;font-weight:700;color:#999;text-transform:uppercase;margin-bottom:4px;}
+.nc-title{font-family:'Noto Serif Bengali',serif;font-size:13.5px;font-weight:700;line-height:1.4;color:#1a1a1a;margin-bottom:6px;transition:color .15s;}
+.nc-meta{font-size:10px;color:#bbb;display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
+.nc-src{background:#f0ece6;padding:1px 6px;border-radius:2px;color:#888;font-size:9px;}
+.nc-ai{font-size:9px;color:#8a6a2a;border:1px solid #e8e4dc;padding:1px 6px;border-radius:2px;background:#faf8f4;}
+
+/* LIST STYLE NEWS */
+.news-list-item{background:#fff;border:1px solid #e8e4dc;border-radius:2px;padding:12px 14px;margin-bottom:8px;display:grid;grid-template-columns:80px 1fr;gap:12px;cursor:pointer;}
+.news-list-item:hover .nli-title{color:#8a6a2a;}
+.nli-thumb{width:78px;height:56px;background:#ede9e2;border-radius:2px;border:1px solid #e0dbd2;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.nli-thumb svg{opacity:0.2;}
+.nli-cat{font-size:9px;letter-spacing:0.1em;font-weight:700;color:#999;text-transform:uppercase;margin-bottom:3px;}
+.nli-title{font-family:'Noto Serif Bengali',serif;font-size:13px;font-weight:600;line-height:1.4;color:#1a1a1a;margin-bottom:5px;transition:color .15s;}
+.nli-meta{font-size:10px;color:#bbb;display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
+.nli-src{background:#f0ece6;padding:1px 6px;border-radius:2px;color:#888;font-size:9px;}
+.nli-ai{font-size:9px;color:#8a6a2a;border:1px solid #e8e4dc;padding:1px 6px;border-radius:2px;background:#faf8f4;}
+
+/* LOAD MORE */
+.load-more{text-align:center;padding:20px 0;}
+.load-btn{background:#fff;border:1px solid #e0dbd2;border-radius:2px;padding:10px 32px;font-size:13px;color:#555;cursor:pointer;font-family:'Hind Siliguri',sans-serif;transition:all .15s;}
+.load-btn:hover{background:#2c2c2a;color:#fff;border-color:#2c2c2a;}
+
+/* SIDEBAR */
+.sidebar{}
+.ad-box{background:#efece6;border:1px solid #e0dbd2;border-radius:2px;height:200px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:11px;color:#bbb;letter-spacing:0.1em;}
+.sb-section{margin-bottom:22px;}
+.sb-lbl{font-size:9px;letter-spacing:0.18em;font-weight:700;color:#888;text-transform:uppercase;border-bottom:2px solid #1a1a1a;padding-bottom:5px;margin-bottom:12px;}
+.sb-item{display:grid;grid-template-columns:44px 1fr;gap:9px;align-items:start;padding:9px 0;border-bottom:1px solid #f0ece6;cursor:pointer;}
+.sb-item:last-child{border-bottom:none;}
+.sb-item:hover .sb-title{color:#8a6a2a;}
+.sb-thumb{width:42px;height:32px;background:#ede9e2;border-radius:2px;border:1px solid #e0dbd2;display:flex;align-items:center;justify-content:center;}
+.sb-thumb svg{opacity:0.2;}
+.sb-cat{font-size:9px;color:#999;text-transform:uppercase;margin-bottom:2px;letter-spacing:0.06em;}
+.sb-title{font-family:'Noto Serif Bengali',serif;font-size:12px;font-weight:600;line-height:1.4;color:#1a1a1a;transition:color .15s;}
+.sb-time{font-size:9.5px;color:#bbb;margin-top:2px;}
+
+/* AI NOTICE */
+.ai-notice{background:#faf8f4;border:1px solid #e8e4dc;border-radius:2px;padding:12px 14px;margin-bottom:20px;font-size:11.5px;color:#888;line-height:1.7;}
+.ai-notice strong{color:#8a6a2a;display:block;margin-bottom:3px;font-size:12px;}
+
+footer{background:#fff;border-top:2.5px solid #1a1a1a;padding:16px 20px;}
+.foot-in{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.foot-logo{font-family:'Noto Serif Bengali',serif;font-size:22px;font-weight:900;color:#1a1a1a;}
+.foot-info{font-size:10.5px;color:#bbb;}
+.foot-links{display:flex;gap:16px;font-size:11px;color:#888;}
+.foot-links a:hover{color:#1a1a1a;}
+
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr;}
+  .sidebar{display:none;}
+  .featured-card{grid-template-columns:1fr;}
+  .fc-thumb{width:100%;height:160px;}
+}
+@media(max-width:560px){
+  .news-grid{grid-template-columns:1fr;}
+  .logo{font-size:28px;}
+  .cat-title{font-size:24px;}
+}
+
+.nav{position:sticky;top:0;z-index:100;box-shadow:0 2px 6px rgba(0,0,0,0.12);}
+.brk{position:sticky;top:38px;z-index:99;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>সোমবার, ২১ এপ্রিল ২০২৬ &nbsp;|&nbsp; ঢাকা <b>সকাল ১০টা</b> &nbsp;|&nbsp; লন্ডন <b>ভোর ৫টা</b></span>
+  <span>ডলার <b>১১০.৫০ টাকা</b> &nbsp;|&nbsp; ইউরো <b>১১৮.২০ টাকা</b></span>
+</div>
+
+<div class="masthead">
+  <div class="mast-in">
+    <div>
+      <div class="logo"><a href="index.html">বাংলা দর্পণ</a></div>
+      <div class="tagline">বিশ্বের সকল বাংলাদেশি খবর — প্রতিদিন স্বয়ংক্রিয় আপডেট</div>
+    </div>
+    <div class="srch">
+      <input type="text" placeholder="খবর খুঁজুন...">
+      <button><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<div class="nav"><div class="nav-in">
+  <a href="index.html">প্রচ্ছদ</a>
+  <a href="category.html">বাংলাদেশ</a>
+  <a href="category.html">প্রবাসী</a>
+  <a href="category.html">অভিবাসন ও ভিসা</a>
+  <a href="#" class="act">রাজনীতি</a>
+  <a href="category.html">অর্থনীতি</a>
+  <a href="category.html">অপরাধ</a>
+  <a href="category.html">খেলাধুলা</a>
+  <a href="category.html">বিশ্ব</a>
+</div></div>
+
+<div class="wrap">
+
+  <!-- CATEGORY HEADER -->
+  <div class="cat-header">
+    <div>
+      <div class="cat-title">রাজনীতি</div>
+      <div class="cat-count">মোট ১২৪টি সংবাদ · আজ ৮টি নতুন</div>
+    </div>
+    <div class="cat-tabs">
+      <div class="cat-tab act">সর্বশেষ</div>
+      <div class="cat-tab">সবচেয়ে পঠিত</div>
+      <div class="cat-tab">বাংলাদেশ</div>
+      <div class="cat-tab">আন্তর্জাতিক</div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="news-list">
+
+      <!-- AI NOTICE -->
+      <div class="ai-notice">
+        <strong>AI সম্পাদকের নোট</strong>
+        সকল সংবাদ বিভিন্ন নির্ভরযোগ্য উৎস থেকে সংগ্রহ করে বাংলা দর্পণের AI সম্পাদক কর্তৃক পুনর্লিখিত। মূল সংবাদের লিংক প্রতিটি খবরের নিচে দেওয়া আছে।
+      </div>
+
+      <!-- FEATURED -->
+      <a href="article.html">
+      <div class="featured-card">
+        <div class="fc-thumb">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span class="fc-thumb-lbl">রাজনীতি</span>
+        </div>
+        <div class="fc-body">
+          <div class="fc-cat">প্রধান সংবাদ</div>
+          <div class="fc-title">সংস্কার আলোচনা স্থবির — নির্বাচনের সময়সীমা নিয়ে অনিশ্চয়তা বাড়ছে</div>
+          <div class="fc-deck">কূটনৈতিক সূত্র জানিয়েছে, জোট অংশীদাররা মূল সাংবিধানিক সংশোধনীতে একমত হতে পারছেন না।</div>
+          <div class="fc-meta">
+            <span class="fc-src">সূত্র: The Daily Star</span>
+            <span class="fc-ai">AI সারসংক্ষেপ</span>
+            <span>২ ঘণ্টা আগে</span>
+          </div>
+        </div>
+      </div>
+      </a>
+
+      <div class="section-divider">আরও সংবাদ</div>
+
+      <!-- GRID NEWS -->
+      <div class="news-grid">
+        <a href="article.html">
+        <div class="news-card">
+          <div class="nc-thumb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+          <div class="nc-cat">রাজনীতি</div>
+          <div class="nc-title">জাতিসংঘের দূত ঢাকায় পররাষ্ট্রমন্ত্রীর সাথে বৈঠক করলেন</div>
+          <div class="nc-meta"><span class="nc-src">সূত্র: un.org</span><span class="nc-ai">AI সারসংক্ষেপ</span><span>৫ ঘণ্টা আগে</span></div>
+        </div>
+        </a>
+        <a href="article.html">
+        <div class="news-card">
+          <div class="nc-thumb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+          <div class="nc-cat">রাজনীতি</div>
+          <div class="nc-title">বিরোধী দলের নতুন জোট গঠনের ঘোষণা — রাজনীতিতে নতুন সমীকরণ</div>
+          <div class="nc-meta"><span class="nc-src">সূত্র: Prothom Alo</span><span class="nc-ai">AI সারসংক্ষেপ</span><span>৭ ঘণ্টা আগে</span></div>
+        </div>
+        </a>
+        <a href="article.html">
+        <div class="news-card">
+          <div class="nc-thumb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div class="nc-cat">রাজনীতি</div>
+          <div class="nc-title">সংসদ ভবনের সামনে বিক্ষোভ — নিরাপত্তা জোরদার করা হয়েছে</div>
+          <div class="nc-meta"><span class="nc-src">সূত্র: bdnews24</span><span class="nc-ai">AI সারসংক্ষেপ</span><span>৯ ঘণ্টা আগে</span></div>
+        </div>
+        </a>
+        <a href="article.html">
+        <div class="news-card">
+          <div class="nc-thumb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="nc-cat">রাজনীতি</div>
+          <div class="nc-title">নির্বাচন কমিশন গঠন নিয়ে নতুন বিতর্ক শুরু হয়েছে</div>
+          <div class="nc-meta"><span class="nc-src">সূত্র: Daily Star</span><span class="nc-ai">AI সারসংক্ষেপ</span><span>১১ ঘণ্টা আগে</span></div>
+        </div>
+        </a>
+      </div>
+
+      <div class="section-divider">আগের সংবাদ</div>
+
+      <!-- LIST NEWS -->
+      <a href="article.html">
+      <div class="news-list-item">
+        <div class="nli-thumb"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg></div>
+        <div>
+          <div class="nli-cat">রাজনীতি</div>
+          <div class="nli-title">প্রধান উপদেষ্টার সাথে বিদেশি রাষ্ট্রদূতদের বৈঠক সম্পন্ন</div>
+          <div class="nli-meta"><span class="nli-src">সূত্র: Reuters</span><span class="nli-ai">AI সারসংক্ষেপ</span><span>গতকাল সন্ধ্যা</span></div>
+        </div>
+      </div>
+      </a>
+      <a href="article.html">
+      <div class="news-list-item">
+        <div class="nli-thumb"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div>
+          <div class="nli-cat">রাজনীতি</div>
+          <div class="nli-title">তত্ত্বাবধায়ক সরকারের দাবিতে বিরোধী দলের মিছিল ঢাকায়</div>
+          <div class="nli-meta"><span class="nli-src">সূত্র: Prothom Alo</span><span class="nli-ai">AI সারসংক্ষেপ</span><span>গতকাল দুপুর</span></div>
+        </div>
+      </div>
+      </a>
+      <a href="article.html">
+      <div class="news-list-item">
+        <div class="nli-thumb"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+        <div>
+          <div class="nli-cat">রাজনীতি</div>
+          <div class="nli-title">আন্তর্জাতিক সম্প্রদায়ের কাছে বাংলাদেশের নির্বাচনি রোডম্যাপ উপস্থাপন</div>
+          <div class="nli-meta"><span class="nli-src">সূত্র: BBC Bangla</span><span class="nli-ai">AI সারসংক্ষেপ</span><span>২ দিন আগে</span></div>
+        </div>
+      </div>
+      </a>
+      <a href="article.html">
+      <div class="news-list-item">
+        <div class="nli-thumb"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+        <div>
+          <div class="nli-cat">রাজনীতি</div>
+          <div class="nli-title">সংবিধান সংশোধনীর খসড়া কমিটি গঠিত হয়েছে</div>
+          <div class="nli-meta"><span class="nli-src">সূত্র: Daily Star</span><span class="nli-ai">AI সারসংক্ষেপ</span><span>২ দিন আগে</span></div>
+        </div>
+      </div>
+      </a>
+
+      <div class="load-more">
+        <button class="load-btn">আরও সংবাদ দেখুন</button>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="ad-box">[ বিজ্ঞাপন ]</div>
+      <div class="sb-section">
+        <div class="sb-lbl">সর্বশেষ খবর</div>
+        <div class="sb-item">
+          <div class="sb-thumb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+          <div><div class="sb-cat">প্রবাসী</div><div class="sb-title">সুইডেনে নতুন ইন্টিগ্রেশন কর্মসূচি</div><div class="sb-time">৩০ মি. আগে</div></div>
+        </div>
+        <div class="sb-item">
+          <div class="sb-thumb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+          <div><div class="sb-cat">অর্থনীতি</div><div class="sb-title">পোশাক খাতে ১২% রপ্তানি প্রবৃদ্ধি</div><div class="sb-time">১ ঘণ্টা আগে</div></div>
+        </div>
+        <div class="sb-item">
+          <div class="sb-thumb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="sb-cat">অভিবাসন</div><div class="sb-title">কানাডায় বাংলাদেশি দক্ষ কর্মীদের নতুন সুযোগ</div><div class="sb-time">৩ ঘণ্টা আগে</div></div>
+        </div>
+        <div class="sb-item">
+          <div class="sb-thumb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12s1-4 4-4 4 4 4 4-1 4-4 4-4-4-4-4z"/></svg></div>
+          <div><div class="sb-cat">ক্রিকেট</div><div class="sb-title">সাকিবের পাঁচ উইকেটে নিউজিল্যান্ডকে হারাল বাংলাদেশ</div><div class="sb-time">১ ঘণ্টা আগে</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer><div class="foot-in">
+  <div class="foot-logo"><a href="index.html">বাংলা দর্পণ</a></div>
+  <div class="foot-info">প্রতি ৮ ঘণ্টায় আপডেট · সকল সূত্র উল্লেখিত · © ২০২৬ bdarpon.com</div>
+  <div class="foot-links"><a href="about.html">সম্পর্কে</a><a href="contact.html">যোগাযোগ</a><a href="#">গোপনীয়তা</a></div>
+</div></footer>
+
+<script>window.addEventListener("scroll",function(){var m=document.querySelector(".masthead");if(window.scrollY>60){m.classList.add("shrunk")}else{m.classList.remove("shrunk")}});</script></body>
+</html>

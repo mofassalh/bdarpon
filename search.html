@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>খোঁজার ফলাফল | বাংলা দর্পণ</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hind Siliguri',sans-serif;background:#f7f4ef;color:#1a1a1a;font-size:14px;}
+a{text-decoration:none;color:inherit;}
+
+.topbar{background:#efece6;border-bottom:1px solid #e0dbd2;padding:5px 20px;font-size:10.5px;color:#999;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+.topbar b{color:#555;}
+
+.masthead{background:#fff;border-bottom:2.5px solid #1a1a1a;padding:14px 20px;}
+.mast-in{max-width:1140px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.logo{font-family:'Noto Serif Bengali',serif;font-size:36px;font-weight:900;color:#1a1a1a;line-height:1;}
+.tagline{font-size:10px;color:#bbb;margin-top:4px;letter-spacing:0.08em;}
+.srch{display:flex;align-items:center;border:1px solid #e0dbd2;border-radius:3px;overflow:hidden;background:#f7f4ef;}
+.srch input{border:none;background:transparent;padding:7px 12px;font-size:12px;font-family:'Hind Siliguri',sans-serif;outline:none;width:160px;color:#1a1a1a;}
+.srch button{background:#2c2c2a;border:none;color:#fff;padding:7px 11px;cursor:pointer;}
+
+.nav{position:sticky;top:0;z-index:100;box-shadow:0 2px 6px rgba(0,0,0,0.12);background:#2c2c2a;overflow-x:auto;white-space:nowrap;}
+.nav-in{max-width:1140px;margin:0 auto;padding:0 20px;}
+.nav a{display:inline-block;color:#bbb;font-size:12.5px;padding:10px 14px;border-bottom:2px solid transparent;transition:color .15s;}
+.nav a:hover{color:#fff;}
+
+.brk{position:sticky;top:38px;z-index:99;background:#2c2c2a;border-top:1px solid #3a3a38;padding:6px 20px;}
+.brk-in{max-width:1140px;margin:0 auto;display:flex;gap:12px;align-items:center;}
+.brk-b{background:#d4a857;color:#1a1a1a;font-size:9.5px;font-weight:700;padding:2px 9px;letter-spacing:0.1em;flex-shrink:0;border-radius:2px;}
+.brk-t{font-size:12px;color:#ccc;font-style:italic;}
+
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px;}
+
+/* SEARCH BAR */
+.search-hero{padding:32px 0 28px;border-bottom:1px solid #e0dbd2;margin-bottom:28px;}
+.search-title{font-family:'Noto Serif Bengali',serif;font-size:26px;font-weight:700;color:#1a1a1a;margin-bottom:16px;}
+.search-bar{display:flex;align-items:center;border:2px solid #1a1a1a;border-radius:3px;overflow:hidden;background:#fff;max-width:600px;}
+.search-bar input{flex:1;border:none;background:transparent;padding:12px 16px;font-size:15px;font-family:'Hind Siliguri',sans-serif;outline:none;color:#1a1a1a;}
+.search-bar button{background:#1a1a1a;border:none;color:#fff;padding:12px 20px;cursor:pointer;font-size:14px;font-family:'Hind Siliguri',sans-serif;font-weight:600;white-space:nowrap;transition:background .15s;}
+.search-bar button:hover{background:#2c2c2a;}
+.search-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.search-tag{background:#fff;border:1px solid #e0dbd2;border-radius:2px;padding:5px 12px;font-size:12px;color:#666;cursor:pointer;transition:all .15s;}
+.search-tag:hover{background:#2c2c2a;color:#fff;border-color:#2c2c2a;}
+
+/* LAYOUT */
+.layout{display:grid;grid-template-columns:1fr 260px;gap:32px;padding-bottom:40px;}
+
+/* RESULTS */
+.results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;}
+.results-count{font-size:13px;color:#888;}
+.results-count b{color:#1a1a1a;}
+.sort-select{border:1px solid #e0dbd2;border-radius:2px;padding:6px 10px;font-size:12px;font-family:'Hind Siliguri',sans-serif;color:#555;background:#fff;outline:none;cursor:pointer;}
+
+/* FILTER TABS */
+.filter-tabs{display:flex;gap:0;margin-bottom:18px;overflow-x:auto;}
+.filter-tab{padding:7px 14px;font-size:12px;color:#888;border:1px solid #e0dbd2;border-right:none;background:#fff;cursor:pointer;white-space:nowrap;transition:all .15s;}
+.filter-tab:first-child{border-radius:2px 0 0 2px;}
+.filter-tab:last-child{border-right:1px solid #e0dbd2;border-radius:0 2px 2px 0;}
+.filter-tab.act{background:#2c2c2a;color:#fff;border-color:#2c2c2a;}
+
+/* RESULT CARDS */
+.result-card{background:#fff;border:1px solid #e8e4dc;border-radius:2px;padding:14px;margin-bottom:10px;display:grid;grid-template-columns:90px 1fr;gap:14px;cursor:pointer;}
+.result-card:hover .rc-title{color:#8a6a2a;}
+.rc-thumb{width:88px;height:66px;background:#ede9e2;border-radius:2px;border:1px solid #e0dbd2;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.rc-thumb svg{opacity:0.18;}
+.rc-body{}
+.rc-cat{font-size:9px;letter-spacing:0.1em;font-weight:700;color:#999;text-transform:uppercase;margin-bottom:4px;}
+.rc-title{font-family:'Noto Serif Bengali',serif;font-size:15px;font-weight:700;line-height:1.4;color:#1a1a1a;margin-bottom:6px;transition:color .15s;}
+.rc-excerpt{font-size:12.5px;line-height:1.7;color:#777;margin-bottom:8px;}
+.rc-meta{font-size:10px;color:#bbb;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.rc-src{background:#f0ece6;padding:1px 7px;border-radius:2px;color:#888;font-size:9.5px;}
+.rc-ai{font-size:9px;color:#8a6a2a;border:1px solid #e8e4dc;padding:1px 7px;border-radius:2px;background:#faf8f4;}
+.highlight{background:#fef9e7;padding:0 2px;border-radius:1px;}
+
+/* NO RESULTS */
+.no-results{background:#fff;border:1px solid #e8e4dc;border-radius:2px;padding:40px;text-align:center;}
+.no-results svg{opacity:0.15;margin-bottom:14px;}
+.no-results-title{font-family:'Noto Serif Bengali',serif;font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:8px;}
+.no-results-sub{font-size:13px;color:#888;line-height:1.7;}
+
+/* LOAD MORE */
+.load-more{text-align:center;padding:20px 0;}
+.load-btn{background:#fff;border:1px solid #e0dbd2;border-radius:2px;padding:10px 32px;font-size:13px;color:#555;cursor:pointer;font-family:'Hind Siliguri',sans-serif;transition:all .15s;}
+.load-btn:hover{background:#2c2c2a;color:#fff;border-color:#2c2c2a;}
+
+/* SIDEBAR */
+.sidebar{}
+.sb-section{margin-bottom:22px;}
+.sb-lbl{font-size:9px;letter-spacing:0.18em;font-weight:700;color:#888;text-transform:uppercase;border-bottom:2px solid #1a1a1a;padding-bottom:5px;margin-bottom:12px;}
+.ad-box{background:#efece6;border:1px solid #e0dbd2;border-radius:2px;height:180px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:11px;color:#bbb;letter-spacing:0.1em;}
+
+.popular-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #f0ece6;cursor:pointer;}
+.popular-item:last-child{border-bottom:none;}
+.popular-num{font-family:'Noto Serif Bengali',serif;font-size:18px;font-weight:900;color:#e8e4dc;min-width:24px;}
+.popular-title{font-family:'Noto Serif Bengali',serif;font-size:12px;font-weight:600;line-height:1.4;color:#1a1a1a;transition:color .15s;}
+.popular-item:hover .popular-title{color:#8a6a2a;}
+.popular-meta{font-size:10px;color:#bbb;margin-top:2px;}
+
+.cat-list{display:flex;flex-direction:column;gap:6px;}
+.cat-link{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:#fff;border:1px solid #e8e4dc;border-radius:2px;font-size:13px;color:#555;cursor:pointer;transition:all .15s;}
+.cat-link:hover{background:#2c2c2a;color:#fff;border-color:#2c2c2a;}
+.cat-count{font-size:10px;background:#f0ece6;padding:1px 7px;border-radius:10px;color:#888;}
+.cat-link:hover .cat-count{background:#3a3a38;color:#ccc;}
+
+footer{background:#fff;border-top:2.5px solid #1a1a1a;padding:16px 20px;}
+.foot-in{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.foot-logo{font-family:'Noto Serif Bengali',serif;font-size:22px;font-weight:900;color:#1a1a1a;}
+.foot-info{font-size:10.5px;color:#bbb;}
+.foot-links{display:flex;gap:16px;font-size:11px;color:#888;}
+.foot-links a:hover{color:#1a1a1a;}
+
+@media(max-width:860px){
+  .layout{grid-template-columns:1fr;}
+  .sidebar{display:none;}
+}
+@media(max-width:500px){
+  .result-card{grid-template-columns:1fr;}
+  .rc-thumb{display:none;}
+  .logo{font-size:28px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>সোমবার, ২১ এপ্রিল ২০২৬ &nbsp;|&nbsp; ঢাকা <b>সকাল ১০টা</b> &nbsp;|&nbsp; লন্ডন <b>ভোর ৫টা</b></span>
+  <span>ডলার <b>১১০.৫০ টাকা</b> &nbsp;|&nbsp; ইউরো <b>১১৮.২০ টাকা</b></span>
+</div>
+
+<div class="masthead">
+  <div class="mast-in">
+    <div>
+      <div class="logo"><a href="index.html">বাংলা দর্পণ</a></div>
+      <div class="tagline">বিশ্বের সকল বাংলাদেশি খবর — প্রতিদিন স্বয়ংক্রিয় আপডেট</div>
+    </div>
+    <div class="srch">
+      <input type="text" placeholder="খবর খুঁজুন..." id="headerSearch">
+      <button onclick="doSearch()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<div class="nav"><div class="nav-in">
+  <a href="index.html">প্রচ্ছদ</a>
+  <a href="category.html">বাংলাদেশ</a>
+  <a href="category.html">প্রবাসী</a>
+  <a href="category.html">অভিবাসন ও ভিসা</a>
+  <a href="category.html">রাজনীতি</a>
+  <a href="category.html">অর্থনীতি</a>
+  <a href="category.html">অপরাধ</a>
+  <a href="category.html">খেলাধুলা</a>
+  <a href="category.html">বিশ্ব</a>
+</div></div>
+
+<div class="brk"><div class="brk-in">
+  <span class="brk-b">ব্রেকিং</span>
+  <span class="brk-t">বাংলাদেশ ইউরোপীয় ইউনিয়নের সাথে নতুন বাণিজ্য চুক্তি স্বাক্ষর করেছে</span>
+</div></div>
+
+<div class="wrap">
+
+  <div class="search-hero">
+    <div class="search-title">খবর খুঁজুন</div>
+    <div class="search-bar">
+      <input type="text" id="mainSearch" placeholder="যেকোনো বিষয় লিখুন..." value="নির্বাচন">
+      <button onclick="doSearch()">খুঁজুন</button>
+    </div>
+    <div class="search-tags">
+      <span class="search-tag" onclick="setSearch('নির্বাচন')">নির্বাচন</span>
+      <span class="search-tag" onclick="setSearch('ভিসা')">ভিসা</span>
+      <span class="search-tag" onclick="setSearch('রেমিট্যান্স')">রেমিট্যান্স</span>
+      <span class="search-tag" onclick="setSearch('প্রবাসী')">প্রবাসী</span>
+      <span class="search-tag" onclick="setSearch('ক্রিকেট')">ক্রিকেট</span>
+      <span class="search-tag" onclick="setSearch('অর্থনীতি')">অর্থনীতি</span>
+      <span class="search-tag" onclick="setSearch('সুইডেন')">সুইডেন</span>
+      <span class="search-tag" onclick="setSearch('যুক্তরাজ্য')">যুক্তরাজ্য</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div>
+      <div class="results-header">
+        <div class="results-count"><b>"নির্বাচন"</b> — ১৮টি ফলাফল পাওয়া গেছে</div>
+        <select class="sort-select">
+          <option>সর্বশেষ আগে</option>
+          <option>সবচেয়ে পুরনো</option>
+          <option>সবচেয়ে পঠিত</option>
+        </select>
+      </div>
+
+      <div class="filter-tabs">
+        <div class="filter-tab act">সব</div>
+        <div class="filter-tab">রাজনীতি</div>
+        <div class="filter-tab">অভিবাসন</div>
+        <div class="filter-tab">অর্থনীতি</div>
+        <div class="filter-tab">প্রবাসী</div>
+        <div class="filter-tab">বিশ্ব</div>
+      </div>
+
+      <a href="article.html">
+      <div class="result-card">
+        <div class="rc-thumb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="rc-body">
+          <div class="rc-cat">রাজনীতি</div>
+          <div class="rc-title">সংস্কার আলোচনা স্থবির — <span class="highlight">নির্বাচনের</span> সময়সীমা নিয়ে অনিশ্চয়তা বাড়ছে</div>
+          <div class="rc-excerpt">কূটনৈতিক সূত্র জানিয়েছে, জোট অংশীদাররা মূল সাংবিধানিক সংশোধনীতে একমত হতে পারছেন না।</div>
+          <div class="rc-meta"><span class="rc-src">সূত্র: Daily Star</span><span class="rc-ai">AI সারসংক্ষেপ</span><span>২ ঘণ্টা আগে</span></div>
+        </div>
+      </div>
+      </a>
+
+      <a href="article.html">
+      <div class="result-card">
+        <div class="rc-thumb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+        <div class="rc-body">
+          <div class="rc-cat">রাজনীতি</div>
+          <div class="rc-title"><span class="highlight">নির্বাচন</span> কমিশন গঠন নিয়ে নতুন বিতর্ক শুরু হয়েছে</div>
+          <div class="rc-excerpt">বিভিন্ন রাজনৈতিক দল নির্বাচন কমিশন গঠনের প্রক্রিয়া নিয়ে ভিন্নমত পোষণ করছে।</div>
+          <div class="rc-meta"><span class="rc-src">সূত্র: Prothom Alo</span><span class="rc-ai">AI সারসংক্ষেপ</span><span>১১ ঘণ্টা আগে</span></div>
+        </div>
+      </div>
+      </a>
+
+      <a href="article.html">
+      <div class="result-card">
+        <div class="rc-thumb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="rc-body">
+          <div class="rc-cat">রাজনীতি</div>
+          <div class="rc-title">তত্ত্বাবধায়ক সরকারের দাবিতে বিরোধী দলের মিছিল — <span class="highlight">নির্বাচনী</span> দাবি জোরালো</div>
+          <div class="rc-excerpt">ঢাকায় বিরোধী দলের বিক্ষোভ মিছিল থেকে দ্রুত নির্বাচনের দাবি জানানো হয়েছে।</div>
+          <div class="rc-meta"><span class="rc-src">সূত্র: bdnews24</span><span class="rc-ai">AI সারসংক্ষেপ</span><span>গতকাল</span></div>
+        </div>
+      </div>
+      </a>
+
+      <a href="article.html">
+      <div class="result-card">
+        <div class="rc-thumb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+        <div class="rc-body">
+          <div class="rc-cat">বিশ্ব</div>
+          <div class="rc-title">আন্তর্জাতিক সম্প্রদায়ের কাছে বাংলাদেশের <span class="highlight">নির্বাচনী</span> রোডম্যাপ উপস্থাপন</div>
+          <div class="rc-excerpt">জাতিসংঘ ও ইউরোপীয় ইউনিয়নের প্রতিনিধিদের কাছে সরকার নির্বাচনের পরিকল্পনা তুলে ধরেছে।</div>
+          <div class="rc-meta"><span class="rc-src">সূত্র: Reuters</span><span class="rc-ai">AI সারসংক্ষেপ</span><span>২ দিন আগে</span></div>
+        </div>
+      </div>
+      </a>
+
+      <a href="article.html">
+      <div class="result-card">
+        <div class="rc-thumb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <div class="rc-body">
+          <div class="rc-cat">রাজনীতি</div>
+          <div class="rc-title">সংবিধান সংশোধনীর খসড়া কমিটি গঠিত — <span class="highlight">নির্বাচন</span> পিছিয়ে যেতে পারে</div>
+          <div class="rc-excerpt">সংবিধান বিশেষজ্ঞদের নিয়ে গঠিত কমিটি আগামী তিন মাসের মধ্যে প্রতিবেদন দেবে।</div>
+          <div class="rc-meta"><span class="rc-src">সূত্র: Daily Star</span><span class="rc-ai">AI সারসংক্ষেপ</span><span>৩ দিন আগে</span></div>
+        </div>
+      </div>
+      </a>
+
+      <div class="load-more">
+        <button class="load-btn">আরও ফলাফল দেখুন (১৩টি বাকি)</button>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="ad-box">[ বিজ্ঞাপন ]</div>
+
+      <div class="sb-section">
+        <div class="sb-lbl">সবচেয়ে পঠিত</div>
+        <div class="popular-item">
+          <div class="popular-num">১</div>
+          <div><div class="popular-title">রেমিট্যান্স প্রবাহে রেকর্ড — প্রবাসীরা বেশি টাকা পাঠাচ্ছেন</div><div class="popular-meta">bdnews24.com · ৪ ঘণ্টা আগে</div></div>
+        </div>
+        <div class="popular-item">
+          <div class="popular-num">২</div>
+          <div><div class="popular-title">UK ভিসা কড়াকড়ি — বাংলাদেশিদের জন্য কী বদলাচ্ছে?</div><div class="popular-meta">bbc.com/bangla · ৬ ঘণ্টা আগে</div></div>
+        </div>
+        <div class="popular-item">
+          <div class="popular-num">৩</div>
+          <div><div class="popular-title">সাকিবের পাঁচ উইকেটে নিউজিল্যান্ডকে হারাল বাংলাদেশ</div><div class="popular-meta">espncricinfo.com · ১ ঘণ্টা আগে</div></div>
+        </div>
+        <div class="popular-item">
+          <div class="popular-num">৪</div>
+          <div><div class="popular-title">কানাডায় বাংলাদেশি দক্ষ কর্মীদের নতুন সুযোগ</div><div class="popular-meta">cic.gc.ca · ৩ ঘণ্টা আগে</div></div>
+        </div>
+        <div class="popular-item">
+          <div class="popular-num">৫</div>
+          <div><div class="popular-title">সুইডেনে নতুন ইন্টিগ্রেশন কর্মসূচি ঘোষণা</div><div class="popular-meta">sverigesradio.se · ৩০ মি.</div></div>
+        </div>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-lbl">বিভাগ অনুযায়ী</div>
+        <div class="cat-list">
+          <a href="category.html" class="cat-link">রাজনীতি <span class="cat-count">১২৪</span></a>
+          <a href="category.html" class="cat-link">প্রবাসী <span class="cat-count">৯৮</span></a>
+          <a href="category.html" class="cat-link">অভিবাসন ও ভিসা <span class="cat-count">৮৬</span></a>
+          <a href="category.html" class="cat-link">অর্থনীতি <span class="cat-count">৭৩</span></a>
+          <a href="category.html" class="cat-link">বিশ্ব <span class="cat-count">৬৫</span></a>
+          <a href="category.html" class="cat-link">খেলাধুলা <span class="cat-count">৫২</span></a>
+          <a href="category.html" class="cat-link">অপরাধ <span class="cat-count">৪৪</span></a>
+          <a href="category.html" class="cat-link">বাংলাদেশ <span class="cat-count">১৫৬</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer><div class="foot-in">
+  <div class="foot-logo"><a href="index.html">বাংলা দর্পণ</a></div>
+  <div class="foot-info">প্রতি ৮ ঘণ্টায় আপডেট · সকল সূত্র উল্লেখিত · © ২০২৬ bdarpon.com</div>
+  <div class="foot-links"><a href="about.html">সম্পর্কে</a><a href="contact.html">যোগাযোগ</a><a href="#">গোপনীয়তা</a></div>
+</div></footer>
+
+<script>
+function doSearch(){
+  var q = document.getElementById('mainSearch').value;
+  if(q) document.querySelector('.results-count').innerHTML = '<b>"'+q+'"</b> — ১৮টি ফলাফল পাওয়া গেছে';
+}
+function setSearch(q){
+  document.getElementById('mainSearch').value = q;
+  doSearch();
+}
+document.getElementById('mainSearch').addEventListener('keypress',function(e){
+  if(e.key==='Enter') doSearch();
+});
+document.querySelectorAll('.filter-tab').forEach(function(tab){
+  tab.addEventListener('click',function(){
+    document.querySelectorAll('.filter-tab').forEach(function(t){t.classList.remove('act');});
+    this.classList.add('act');
+  });
+});
+</script>
+
+</body>
+</html>

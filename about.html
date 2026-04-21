@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>আমাদের সম্পর্কে | বাংলা দর্পণ</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hind Siliguri',sans-serif;background:#f7f4ef;color:#1a1a1a;font-size:14px;}
+a{text-decoration:none;color:inherit;}
+
+.topbar{background:#efece6;border-bottom:1px solid #e0dbd2;padding:5px 20px;font-size:10.5px;color:#999;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+.topbar b{color:#555;}
+
+.masthead{background:#fff;border-bottom:2.5px solid #1a1a1a;padding:14px 20px;}
+.mast-in{max-width:1140px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.logo{font-family:'Noto Serif Bengali',serif;font-size:36px;font-weight:900;color:#1a1a1a;line-height:1;}
+.tagline{font-size:10px;color:#bbb;margin-top:4px;letter-spacing:0.08em;}
+.srch{display:flex;align-items:center;border:1px solid #e0dbd2;border-radius:3px;overflow:hidden;background:#f7f4ef;}
+.srch input{border:none;background:transparent;padding:7px 12px;font-size:12px;font-family:'Hind Siliguri',sans-serif;outline:none;width:160px;color:#1a1a1a;}
+.srch button{background:#2c2c2a;border:none;color:#fff;padding:7px 11px;cursor:pointer;}
+
+.nav{position:sticky;top:0;z-index:100;box-shadow:0 2px 6px rgba(0,0,0,0.12);background:#2c2c2a;overflow-x:auto;white-space:nowrap;}
+.nav-in{max-width:1140px;margin:0 auto;padding:0 20px;}
+.nav a{display:inline-block;color:#bbb;font-size:12.5px;padding:10px 14px;border-bottom:2px solid transparent;transition:color .15s;}
+.nav a:hover{color:#fff;}
+.nav a.act{color:#fff;border-bottom-color:#d4a857;}
+
+.brk{position:sticky;top:38px;z-index:99;background:#2c2c2a;border-top:1px solid #3a3a38;padding:6px 20px;}
+.brk-in{max-width:1140px;margin:0 auto;display:flex;gap:12px;align-items:center;}
+.brk-b{background:#d4a857;color:#1a1a1a;font-size:9.5px;font-weight:700;padding:2px 9px;letter-spacing:0.1em;flex-shrink:0;border-radius:2px;}
+.brk-t{font-size:12px;color:#ccc;font-style:italic;}
+
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px;}
+
+/* PAGE HEADER */
+.page-header{padding:32px 0 24px;border-bottom:2px solid #1a1a1a;margin-bottom:40px;}
+.page-title{font-family:'Noto Serif Bengali',serif;font-size:32px;font-weight:900;color:#1a1a1a;margin-bottom:8px;}
+.page-sub{font-size:14px;color:#888;line-height:1.7;}
+
+/* ABOUT LAYOUT */
+.about-layout{display:grid;grid-template-columns:1fr 300px;gap:40px;padding-bottom:48px;}
+
+/* MAIN CONTENT */
+.about-main{}
+.about-section{margin-bottom:36px;}
+.section-title{font-family:'Noto Serif Bengali',serif;font-size:20px;font-weight:700;color:#1a1a1a;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #e8e4dc;}
+.about-text{font-size:14px;line-height:1.9;color:#444;margin-bottom:14px;}
+.about-text:last-child{margin-bottom:0;}
+
+/* HOW IT WORKS */
+.steps{display:flex;flex-direction:column;gap:14px;}
+.step{background:#fff;border:1px solid #e8e4dc;border-radius:2px;padding:16px;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;}
+.step-num{width:40px;height:40px;background:#2c2c2a;border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif Bengali',serif;font-size:18px;font-weight:700;color:#d4a857;flex-shrink:0;}
+.step-title{font-family:'Noto Serif Bengali',serif;font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:4px;}
+.step-desc{font-size:13px;color:#666;line-height:1.7;}
+
+/* SOURCES */
+.sources-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.source-card{background:#fff;border:1px solid #e8e4dc;border-radius:2px;padding:12px;text-align:center;}
+.source-name{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:3px;}
+.source-url{font-size:10px;color:#8a6a2a;}
+
+/* AI NOTE */
+.ai-box{background:#faf8f4;border:1px solid #e8e4dc;border-left:3px solid #d4a857;border-radius:0 2px 2px 0;padding:16px 18px;margin-bottom:36px;}
+.ai-box-title{font-family:'Noto Serif Bengali',serif;font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;}
+.ai-box-text{font-size:13.5px;line-height:1.8;color:#555;}
+
+/* SIDEBAR */
+.about-sidebar{}
+.sb-card{background:#fff;border:1px solid #e8e4dc;border-radius:2px;padding:18px;margin-bottom:16px;}
+.sb-card-title{font-family:'Noto Serif Bengali',serif;font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #f0ece6;}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:0;}
+.stat-item{text-align:center;padding:10px;background:#f7f4ef;border-radius:2px;}
+.stat-num{font-family:'Noto Serif Bengali',serif;font-size:22px;font-weight:900;color:#1a1a1a;line-height:1;}
+.stat-label{font-size:10px;color:#999;margin-top:3px;letter-spacing:0.06em;}
+.contact-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #f0ece6;font-size:13px;color:#555;}
+.contact-item:last-child{border-bottom:none;}
+.contact-item svg{opacity:0.4;flex-shrink:0;}
+.contact-label{font-size:10px;color:#bbb;display:block;margin-bottom:1px;}
+.contact-val{color:#1a1a1a;font-size:12.5px;}
+
+footer{background:#fff;border-top:2.5px solid #1a1a1a;padding:16px 20px;margin-top:0;}
+.foot-in{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.foot-logo{font-family:'Noto Serif Bengali',serif;font-size:22px;font-weight:900;color:#1a1a1a;}
+.foot-info{font-size:10.5px;color:#bbb;}
+.foot-links{display:flex;gap:16px;font-size:11px;color:#888;}
+.foot-links a:hover{color:#1a1a1a;}
+
+@media(max-width:860px){
+  .about-layout{grid-template-columns:1fr;}
+  .about-sidebar{display:none;}
+  .sources-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:500px){
+  .sources-grid{grid-template-columns:1fr;}
+  .logo{font-size:28px;}
+  .page-title{font-size:26px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>সোমবার, ২১ এপ্রিল ২০২৬ &nbsp;|&nbsp; ঢাকা <b>সকাল ১০টা</b> &nbsp;|&nbsp; লন্ডন <b>ভোর ৫টা</b></span>
+  <span>ডলার <b>১১০.৫০ টাকা</b> &nbsp;|&nbsp; ইউরো <b>১১৮.২০ টাকা</b></span>
+</div>
+
+<div class="masthead">
+  <div class="mast-in">
+    <div>
+      <div class="logo"><a href="index.html">বাংলা দর্পণ</a></div>
+      <div class="tagline">বিশ্বের সকল বাংলাদেশি খবর — প্রতিদিন স্বয়ংক্রিয় আপডেট</div>
+    </div>
+    <div class="srch">
+      <input type="text" placeholder="খবর খুঁজুন...">
+      <button><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<div class="nav"><div class="nav-in">
+  <a href="index.html">প্রচ্ছদ</a>
+  <a href="category.html">বাংলাদেশ</a>
+  <a href="category.html">প্রবাসী</a>
+  <a href="category.html">অভিবাসন ও ভিসা</a>
+  <a href="category.html">রাজনীতি</a>
+  <a href="category.html">অর্থনীতি</a>
+  <a href="category.html">অপরাধ</a>
+  <a href="category.html">খেলাধুলা</a>
+  <a href="category.html">বিশ্ব</a>
+</div></div>
+
+<div class="brk"><div class="brk-in">
+  <span class="brk-b">ব্রেকিং</span>
+  <span class="brk-t">বাংলাদেশ ইউরোপীয় ইউনিয়নের সাথে নতুন বাণিজ্য চুক্তি স্বাক্ষর করেছে</span>
+</div></div>
+
+<div class="wrap">
+
+  <div class="page-header">
+    <div class="page-title">আমাদের সম্পর্কে</div>
+    <div class="page-sub">বাংলা দর্পণ — বিশ্বের বাংলাদেশি কমিউনিটির জন্য একটি স্বয়ংক্রিয় সংবাদ পোর্টাল</div>
+  </div>
+
+  <div class="about-layout">
+
+    <div class="about-main">
+
+      <div class="about-section">
+        <div class="section-title">আমরা কে?</div>
+        <p class="about-text">বাংলা দর্পণ একটি AI-চালিত বাংলা সংবাদ পোর্টাল যা বিশ্বের বিভিন্ন প্রান্তে বসবাসরত বাংলাদেশিদের জন্য তৈরি। সুইডেন, যুক্তরাজ্য, যুক্তরাষ্ট্র, কানাডাসহ বিশ্বের যেকোনো প্রান্তে থাকা প্রবাসী বাংলাদেশিরা এখানে দেশের ও বিশ্বের সকল গুরুত্বপূর্ণ সংবাদ সহজে পড়তে পারবেন।</p>
+        <p class="about-text">আমাদের লক্ষ্য হলো বিশ্বের শীর্ষস্থানীয় সংবাদ মাধ্যম থেকে বাংলাদেশ সংক্রান্ত খবর সংগ্রহ করে সহজ ও প্রাঞ্জল বাংলায় উপস্থাপন করা — প্রতিটি সংবাদের মূল উৎস উল্লেখসহ।</p>
+      </div>
+
+      <div class="ai-box">
+        <div class="ai-box-title">AI সম্পাদক সম্পর্কে</div>
+        <div class="ai-box-text">বাংলা দর্পণের সকল সংবাদ Claude AI দ্বারা পুনর্লিখিত হয়। মূল সংবাদের তথ্য ও সত্যতা অক্ষুণ্ণ রেখে সহজ বাংলায় সারসংক্ষেপ তৈরি করা হয়। প্রতিটি সংবাদের নিচে মূল উৎসের লিংক দেওয়া থাকে যাতে পাঠক চাইলে সম্পূর্ণ প্রতিবেদন পড়তে পারেন।</div>
+      </div>
+
+      <div class="about-section">
+        <div class="section-title">কীভাবে কাজ করে?</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">১</div>
+            <div>
+              <div class="step-title">সংবাদ সংগ্রহ</div>
+              <div class="step-desc">প্রতিদিন সকাল, দুপুর ও রাতে বিশ্বের শীর্ষ সংবাদ মাধ্যম থেকে বাংলাদেশ সংক্রান্ত সর্বশেষ খবর স্বয়ংক্রিয়ভাবে সংগ্রহ করা হয়।</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">২</div>
+            <div>
+              <div class="step-title">AI পুনর্লিখন</div>
+              <div class="step-desc">Claude AI মূল সংবাদ বিশ্লেষণ করে সহজ ও প্রাঞ্জল বাংলায় সারসংক্ষেপ তৈরি করে। তথ্যের নির্ভুলতা বজায় রাখা হয়।</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">৩</div>
+            <div>
+              <div class="step-title">প্রকাশনা</div>
+              <div class="step-desc">পুনর্লিখিত সংবাদ মূল উৎসের রেফারেন্সসহ বাংলা দর্পণে প্রকাশিত হয়। একই সাথে Facebook ও Telegram এ শেয়ার করা হয়।</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">৪</div>
+            <div>
+              <div class="step-title">আপডেট</div>
+              <div class="step-desc">প্রতিদিন ৩ বার — সকাল ৮টা, দুপুর ২টা এবং রাত ৮টায় — নতুন সংবাদ স্বয়ংক্রিয়ভাবে আপডেট হয়।</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <div class="section-title">আমাদের সংবাদ উৎস</div>
+        <p class="about-text" style="margin-bottom:16px;">আমরা কেবলমাত্র নির্ভরযোগ্য ও স্বীকৃত সংবাদ মাধ্যম থেকে খবর সংগ্রহ করি।</p>
+        <div class="sources-grid">
+          <div class="source-card"><div class="source-name">The Daily Star</div><div class="source-url">thedailystar.net</div></div>
+          <div class="source-card"><div class="source-name">Prothom Alo</div><div class="source-url">prothomalo.com</div></div>
+          <div class="source-card"><div class="source-name">bdnews24</div><div class="source-url">bdnews24.com</div></div>
+          <div class="source-card"><div class="source-name">BBC Bangla</div><div class="source-url">bbc.com/bangla</div></div>
+          <div class="source-card"><div class="source-name">Reuters</div><div class="source-url">reuters.com</div></div>
+          <div class="source-card"><div class="source-name">The Guardian</div><div class="source-url">theguardian.com</div></div>
+          <div class="source-card"><div class="source-name">Al Jazeera</div><div class="source-url">aljazeera.com</div></div>
+          <div class="source-card"><div class="source-name">Financial Express</div><div class="source-url">thefinancialexpress.com</div></div>
+          <div class="source-card"><div class="source-name">SVT / SR</div><div class="source-url">svt.se / sverigesradio.se</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="about-sidebar">
+
+      <div class="sb-card">
+        <div class="sb-card-title">এক নজরে বাংলা দর্পণ</div>
+        <div class="stat-grid">
+          <div class="stat-item">
+            <div class="stat-num">৩×</div>
+            <div class="stat-label">দৈনিক আপডেট</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">১৫+</div>
+            <div class="stat-label">সংবাদ উৎস</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">৮</div>
+            <div class="stat-label">বিভাগ</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">২৪/৭</div>
+            <div class="stat-label">সচল পোর্টাল</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-card">
+        <div class="sb-card-title">যোগাযোগ করুন</div>
+        <div class="contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div><span class="contact-label">ইমেইল</span><span class="contact-val">info@bdarpon.com</span></div>
+        </div>
+        <div class="contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M21 2H3v16h5l4 4 4-4h5V2z"/></svg>
+          <div><span class="contact-label">Telegram</span><span class="contact-val">t.me/bdarpon</span></div>
+        </div>
+        <div class="contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          <div><span class="contact-label">Facebook</span><span class="contact-val">fb.com/bdarpon</span></div>
+        </div>
+      </div>
+
+      <div class="sb-card">
+        <div class="sb-card-title">দ্রুত লিংক</div>
+        <div class="contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg><div><a href="index.html" style="color:#8a6a2a;">প্রচ্ছদ</a></div></div>
+        <div class="contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg><div><a href="contact.html" style="color:#8a6a2a;">যোগাযোগ করুন</a></div></div>
+        <div class="contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg><div><a href="#" style="color:#8a6a2a;">গোপনীয়তা নীতি</a></div></div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<footer><div class="foot-in">
+  <div class="foot-logo"><a href="index.html">বাংলা দর্পণ</a></div>
+  <div class="foot-info">প্রতি ৮ ঘণ্টায় আপডেট · সকল সূত্র উল্লেখিত · © ২০২৬ bdarpon.com</div>
+  <div class="foot-links"><a href="about.html">সম্পর্কে</a><a href="contact.html">যোগাযোগ</a><a href="#">গোপনীয়তা</a></div>
+</div></footer>
+
+</body>
+</html>

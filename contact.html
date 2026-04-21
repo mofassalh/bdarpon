@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>যোগাযোগ | বাংলা দর্পণ</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hind Siliguri',sans-serif;background:#f7f4ef;color:#1a1a1a;font-size:14px;}
+a{text-decoration:none;color:inherit;}
+
+.topbar{background:#efece6;border-bottom:1px solid #e0dbd2;padding:5px 20px;font-size:10.5px;color:#999;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+.topbar b{color:#555;}
+
+.masthead{background:#fff;border-bottom:2.5px solid #1a1a1a;padding:14px 20px;}
+.mast-in{max-width:1140px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.logo{font-family:'Noto Serif Bengali',serif;font-size:36px;font-weight:900;color:#1a1a1a;line-height:1;}
+.tagline{font-size:10px;color:#bbb;margin-top:4px;letter-spacing:0.08em;}
+.srch{display:flex;align-items:center;border:1px solid #e0dbd2;border-radius:3px;overflow:hidden;background:#f7f4ef;}
+.srch input{border:none;background:transparent;padding:7px 12px;font-size:12px;font-family:'Hind Siliguri',sans-serif;outline:none;width:160px;color:#1a1a1a;}
+.srch button{background:#2c2c2a;border:none;color:#fff;padding:7px 11px;cursor:pointer;}
+
+.nav{position:sticky;top:0;z-index:100;box-shadow:0 2px 6px rgba(0,0,0,0.12);background:#2c2c2a;overflow-x:auto;white-space:nowrap;}
+.nav-in{max-width:1140px;margin:0 auto;padding:0 20px;}
+.nav a{display:inline-block;color:#bbb;font-size:12.5px;padding:10px 14px;border-bottom:2px solid transparent;transition:color .15s;}
+.nav a:hover{color:#fff;}
+.nav a.act{color:#fff;border-bottom-color:#d4a857;}
+
+.brk{position:sticky;top:38px;z-index:99;background:#2c2c2a;border-top:1px solid #3a3a38;padding:6px 20px;}
+.brk-in{max-width:1140px;margin:0 auto;display:flex;gap:12px;align-items:center;}
+.brk-b{background:#d4a857;color:#1a1a1a;font-size:9.5px;font-weight:700;padding:2px 9px;letter-spacing:0.1em;flex-shrink:0;border-radius:2px;}
+.brk-t{font-size:12px;color:#ccc;font-style:italic;}
+
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px;}
+
+.page-header{padding:32px 0 24px;border-bottom:2px solid #1a1a1a;margin-bottom:40px;}
+.page-title{font-family:'Noto Serif Bengali',serif;font-size:32px;font-weight:900;color:#1a1a1a;margin-bottom:8px;}
+.page-sub{font-size:14px;color:#888;line-height:1.7;}
+
+.contact-layout{display:grid;grid-template-columns:1fr 320px;gap:40px;padding-bottom:48px;}
+
+/* FORM */
+.form-card{background:#fff;border:1px solid #e8e4dc;border-radius:2px;padding:28px;}
+.form-title{font-family:'Noto Serif Bengali',serif;font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #f0ece6;}
+.form-group{margin-bottom:16px;}
+.form-label{display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:6px;letter-spacing:0.04em;}
+.form-input{width:100%;padding:9px 12px;border:1px solid #e0dbd2;border-radius:2px;font-size:13px;font-family:'Hind Siliguri',sans-serif;color:#1a1a1a;background:#f7f4ef;outline:none;transition:border .15s;}
+.form-input:focus{border-color:#2c2c2a;background:#fff;}
+.form-select{width:100%;padding:9px 12px;border:1px solid #e0dbd2;border-radius:2px;font-size:13px;font-family:'Hind Siliguri',sans-serif;color:#1a1a1a;background:#f7f4ef;outline:none;appearance:none;cursor:pointer;}
+.form-textarea{width:100%;padding:9px 12px;border:1px solid #e0dbd2;border-radius:2px;font-size:13px;font-family:'Hind Siliguri',sans-serif;color:#1a1a1a;background:#f7f4ef;outline:none;resize:vertical;min-height:130px;transition:border .15s;}
+.form-textarea:focus{border-color:#2c2c2a;background:#fff;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.submit-btn{width:100%;background:#2c2c2a;color:#fff;border:none;padding:12px;font-size:14px;font-family:'Hind Siliguri',sans-serif;font-weight:600;cursor:pointer;border-radius:2px;transition:background .15s;margin-top:4px;}
+.submit-btn:hover{background:#1a1a1a;}
+.form-note{font-size:11px;color:#bbb;margin-top:10px;text-align:center;}
+
+/* SUCCESS MSG */
+.success-msg{display:none;background:#f0faf4;border:1px solid #b8e6cc;border-radius:2px;padding:14px 16px;margin-top:14px;font-size:13px;color:#2d6a4f;text-align:center;}
+
+/* SIDEBAR */
+.contact-sidebar{}
+.info-card{background:#fff;border:1px solid #e8e4dc;border-radius:2px;padding:18px;margin-bottom:14px;}
+.info-title{font-family:'Noto Serif Bengali',serif;font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #f0ece6;}
+.info-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f7f4ef;}
+.info-item:last-child{border-bottom:none;padding-bottom:0;}
+.info-icon{width:34px;height:34px;background:#f0ece6;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid #e8e4dc;}
+.info-icon svg{opacity:0.4;}
+.info-label{font-size:10px;color:#bbb;margin-bottom:2px;letter-spacing:0.04em;}
+.info-val{font-size:13px;color:#1a1a1a;font-weight:500;}
+.info-sub{font-size:11px;color:#999;margin-top:1px;}
+
+.social-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.social-btn{background:#f7f4ef;border:1px solid #e0dbd2;border-radius:2px;padding:10px 12px;display:flex;align-items:center;gap:8px;cursor:pointer;transition:all .15s;text-decoration:none;}
+.social-btn:hover{background:#2c2c2a;border-color:#2c2c2a;}
+.social-btn:hover .social-name{color:#fff;}
+.social-btn:hover .social-icon svg{stroke:#fff;opacity:1;}
+.social-icon{width:28px;height:28px;display:flex;align-items:center;justify-content:center;}
+.social-icon svg{opacity:0.5;transition:all .15s;}
+.social-name{font-size:12.5px;color:#555;font-weight:500;transition:color .15s;}
+
+.faq-card{background:#fff;border:1px solid #e8e4dc;border-radius:2px;padding:18px;}
+.faq-item{padding:10px 0;border-bottom:1px solid #f0ece6;cursor:pointer;}
+.faq-item:last-child{border-bottom:none;}
+.faq-q{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center;}
+.faq-a{font-size:12px;color:#777;line-height:1.7;}
+
+footer{background:#fff;border-top:2.5px solid #1a1a1a;padding:16px 20px;}
+.foot-in{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.foot-logo{font-family:'Noto Serif Bengali',serif;font-size:22px;font-weight:900;color:#1a1a1a;}
+.foot-info{font-size:10.5px;color:#bbb;}
+.foot-links{display:flex;gap:16px;font-size:11px;color:#888;}
+.foot-links a:hover{color:#1a1a1a;}
+
+@media(max-width:860px){
+  .contact-layout{grid-template-columns:1fr;}
+  .contact-sidebar{display:none;}
+}
+@media(max-width:500px){
+  .form-row{grid-template-columns:1fr;}
+  .logo{font-size:28px;}
+  .page-title{font-size:26px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>সোমবার, ২১ এপ্রিল ২০২৬ &nbsp;|&nbsp; ঢাকা <b>সকাল ১০টা</b> &nbsp;|&nbsp; লন্ডন <b>ভোর ৫টা</b></span>
+  <span>ডলার <b>১১০.৫০ টাকা</b> &nbsp;|&nbsp; ইউরো <b>১১৮.২০ টাকা</b></span>
+</div>
+
+<div class="masthead">
+  <div class="mast-in">
+    <div>
+      <div class="logo"><a href="index.html">বাংলা দর্পণ</a></div>
+      <div class="tagline">বিশ্বের সকল বাংলাদেশি খবর — প্রতিদিন স্বয়ংক্রিয় আপডেট</div>
+    </div>
+    <div class="srch">
+      <input type="text" placeholder="খবর খুঁজুন...">
+      <button><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<div class="nav"><div class="nav-in">
+  <a href="index.html">প্রচ্ছদ</a>
+  <a href="category.html">বাংলাদেশ</a>
+  <a href="category.html">প্রবাসী</a>
+  <a href="category.html">অভিবাসন ও ভিসা</a>
+  <a href="category.html">রাজনীতি</a>
+  <a href="category.html">অর্থনীতি</a>
+  <a href="category.html">অপরাধ</a>
+  <a href="category.html">খেলাধুলা</a>
+  <a href="category.html">বিশ্ব</a>
+</div></div>
+
+<div class="brk"><div class="brk-in">
+  <span class="brk-b">ব্রেকিং</span>
+  <span class="brk-t">বাংলাদেশ ইউরোপীয় ইউনিয়নের সাথে নতুন বাণিজ্য চুক্তি স্বাক্ষর করেছে</span>
+</div></div>
+
+<div class="wrap">
+
+  <div class="page-header">
+    <div class="page-title">যোগাযোগ করুন</div>
+    <div class="page-sub">কোনো প্রশ্ন, পরামর্শ বা সংবাদ পাঠাতে চাইলে আমাদের সাথে যোগাযোগ করুন</div>
+  </div>
+
+  <div class="contact-layout">
+
+    <div class="form-card">
+      <div class="form-title">বার্তা পাঠান</div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">আপনার নাম</label>
+          <input type="text" class="form-input" placeholder="নাম লিখুন">
+        </div>
+        <div class="form-group">
+          <label class="form-label">ইমেইল</label>
+          <input type="email" class="form-input" placeholder="email@example.com">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">বিষয়</label>
+        <select class="form-select">
+          <option>বিষয় বেছে নিন</option>
+          <option>সংবাদ পাঠানো</option>
+          <option>ভুল সংশোধন</option>
+          <option>বিজ্ঞাপন</option>
+          <option>প্রযুক্তিগত সমস্যা</option>
+          <option>অন্যান্য</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">বার্তা</label>
+        <textarea class="form-textarea" placeholder="আপনার বার্তা লিখুন..."></textarea>
+      </div>
+
+      <button class="submit-btn" onclick="submitForm()">বার্তা পাঠান</button>
+      <div class="form-note">আমরা সাধারণত ২৪ ঘণ্টার মধ্যে উত্তর দিই</div>
+      <div class="success-msg" id="successMsg">✓ আপনার বার্তা সফলভাবে পাঠানো হয়েছে। ধন্যবাদ!</div>
+    </div>
+
+    <div class="contact-sidebar">
+
+      <div class="info-card">
+        <div class="info-title">যোগাযোগের তথ্য</div>
+        <div class="info-item">
+          <div class="info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="info-label">ইমেইল</div><div class="info-val">info@bdarpon.com</div><div class="info-sub">২৪ ঘণ্টার মধ্যে উত্তর</div></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M21 2H3v16h5l4 4 4-4h5V2z"/></svg></div>
+          <div><div class="info-label">Telegram</div><div class="info-val">t.me/bdarpon</div><div class="info-sub">দ্রুত যোগাযোগের জন্য</div></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+          <div><div class="info-label">Facebook</div><div class="info-val">fb.com/bdarpon</div><div class="info-sub">Facebook Page</div></div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">সোশ্যাল মিডিয়া</div>
+        <div class="social-grid">
+          <a href="#" class="social-btn">
+            <div class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+            <span class="social-name">Facebook</span>
+          </a>
+          <a href="#" class="social-btn">
+            <div class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M21 2H3v16h5l4 4 4-4h5V2z"/></svg></div>
+            <span class="social-name">Telegram</span>
+          </a>
+          <a href="#" class="social-btn">
+            <div class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+            <span class="social-name">Instagram</span>
+          </a>
+          <a href="#" class="social-btn">
+            <div class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></div>
+            <span class="social-name">Twitter / X</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <div class="info-title">সাধারণ প্রশ্ন</div>
+        <div class="faq-item">
+          <div class="faq-q">কতক্ষণে আপডেট হয়?</div>
+          <div class="faq-a">প্রতিদিন সকাল ৮টা, দুপুর ২টা ও রাত ৮টায় নতুন সংবাদ আসে।</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">সংবাদ কি সঠিক?</div>
+          <div class="faq-a">আমরা শুধু নির্ভরযোগ্য উৎস থেকে সংবাদ নিই। প্রতিটি সংবাদে মূল সূত্রের লিংক দেওয়া আছে।</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">বিজ্ঞাপন দিতে চাই?</div>
+          <div class="faq-a">info@bdarpon.com এ ইমেইল করুন অথবা উপরের ফর্মে বিজ্ঞাপন সিলেক্ট করুন।</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<footer><div class="foot-in">
+  <div class="foot-logo"><a href="index.html">বাংলা দর্পণ</a></div>
+  <div class="foot-info">প্রতি ৮ ঘণ্টায় আপডেট · সকল সূত্র উল্লেখিত · © ২০২৬ bdarpon.com</div>
+  <div class="foot-links"><a href="about.html">সম্পর্কে</a><a href="contact.html">যোগাযোগ</a><a href="#">গোপনীয়তা</a></div>
+</div></footer>
+
+<script>
+function submitForm(){
+  document.getElementById('successMsg').style.display='block';
+  setTimeout(function(){
+    document.getElementById('successMsg').style.display='none';
+  },4000);
+}
+</script>
+
+</body>
+</html>
