@@ -224,11 +224,11 @@ footer{background:#fff;border-top:2.5px solid #1a1a1a;padding:16px 20px;}
 
       <div class="share-bar">
         <span class="share-lbl">শেয়ার করুন:</span>
-        <button class="share-btn">Facebook</button>
-        <button class="share-btn">WhatsApp</button>
-        <button class="share-btn">Telegram</button>
-        <button class="share-btn">Twitter / X</button>
-        <button class="share-btn">লিংক কপি</button>
+        <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+window.location.href)">Facebook</button>
+        <button class="share-btn" onclick="window.open('https://wa.me/?text='+window.location.href)">WhatsApp</button>
+        <button class="share-btn" onclick="window.open('https://t.me/share/url?url='+window.location.href)">Telegram</button>
+        <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url='+window.location.href)">Twitter / X</button>
+        <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href);alert('লিংক কপি হয়েছে!')">লিংক কপি</button>
       </div>
 
       <div class="source-box">
