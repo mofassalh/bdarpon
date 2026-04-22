@@ -9,76 +9,56 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Hind Siliguri',sans-serif;background:#f7f4ef;color:#1a1a1a;font-size:15px;}
 a{text-decoration:none;color:inherit;}
-
-/* TOP BAR */
 .topbar{background:#efece6;border-bottom:1px solid #e0dbd2;padding:5px 20px;font-size:10.5px;color:#999;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
 .topbar b{color:#555;}
-
-/* MASTHEAD */
 .masthead{background:#fff;border-bottom:2.5px solid #1a1a1a;padding:14px 20px;}
-.mast-in{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
-.logo{font-family:'Noto Serif Bengali',serif;font-size:36px;font-weight:900;color:#1a1a1a;line-height:1;}
+.mast-in{max-width:1140px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.logo{font-family:'Noto Serif Bengali',serif;font-size:36px;font-weight:900;color:#1a1a1a;line-height:1;cursor:pointer;}
 .tagline{font-size:10px;color:#bbb;margin-top:4px;letter-spacing:0.08em;}
 .srch{display:flex;align-items:center;border:1px solid #e0dbd2;border-radius:3px;overflow:hidden;background:#f7f4ef;}
 .srch input{border:none;background:transparent;padding:7px 12px;font-size:12px;font-family:'Hind Siliguri',sans-serif;outline:none;width:160px;color:#1a1a1a;}
 .srch button{background:#2c2c2a;border:none;color:#fff;padding:7px 11px;cursor:pointer;}
-
-/* NAV */
-.nav{background:#2c2c2a;overflow-x:auto;white-space:nowrap;}
+.nav{position:sticky;top:0;z-index:100;box-shadow:0 2px 6px rgba(0,0,0,0.12);background:#2c2c2a;overflow-x:auto;white-space:nowrap;}
 .nav-in{max-width:1140px;margin:0 auto;padding:0 20px;}
 .nav a{display:inline-block;color:#bbb;font-size:12.5px;padding:10px 14px;border-bottom:2px solid transparent;transition:color .15s;}
 .nav a:hover{color:#fff;}
 .nav a.act{color:#fff;border-bottom-color:#d4a857;}
-
-/* WRAP */
+.brk{position:sticky;top:38px;z-index:99;background:#2c2c2a;border-top:1px solid #3a3a38;padding:6px 20px;}
+.brk-in{max-width:1140px;margin:0 auto;display:flex;gap:12px;align-items:center;}
+.brk-b{background:#d4a857;color:#1a1a1a;font-size:9.5px;font-weight:700;padding:2px 9px;letter-spacing:0.1em;flex-shrink:0;border-radius:2px;}
+.brk-t{font-size:12px;color:#ccc;font-style:italic;}
 .wrap{max-width:1140px;margin:0 auto;padding:0 20px;}
-
-/* BREADCRUMB */
 .breadcrumb{padding:14px 0 0;font-size:11px;color:#bbb;display:flex;gap:6px;align-items:center;}
 .breadcrumb a{color:#8a6a2a;}
 .breadcrumb a:hover{text-decoration:underline;}
 .breadcrumb span{color:#ccc;}
-
-/* ARTICLE LAYOUT */
 .article-layout{display:grid;grid-template-columns:1fr 280px;gap:32px;padding:20px 0 40px;}
-
-/* ARTICLE MAIN */
 .article-main{}
 .article-cat{font-size:10px;letter-spacing:0.14em;font-weight:700;color:#8a6a2a;text-transform:uppercase;margin-bottom:10px;}
 .article-title{font-family:'Noto Serif Bengali',serif;font-size:28px;font-weight:900;line-height:1.4;color:#1a1a1a;margin-bottom:14px;}
-.article-deck{font-size:15px;line-height:1.8;color:#555;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #e8e4dc;font-family:'Noto Serif Bengali',serif;font-weight:400;}
+.article-deck{font-size:15px;line-height:1.8;color:#555;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #e8e4dc;font-family:'Noto Serif Bengali',serif;}
 .article-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:20px;font-size:11px;color:#bbb;}
 .source-tag{background:#f0ece6;padding:3px 10px;border-radius:2px;color:#888;font-size:10.5px;border:1px solid #e8e4dc;}
 .meta-dot{color:#ddd;}
-
-/* HERO IMAGE */
 .article-img{width:100%;height:320px;background:#ede9e2;border-radius:2px;border:1px solid #e0dbd2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;margin-bottom:10px;}
 .article-img svg{opacity:0.15;}
 .article-img-lbl{font-size:10px;letter-spacing:0.1em;color:#ccc;text-transform:uppercase;}
 .img-caption{font-size:11px;color:#bbb;margin-bottom:22px;font-style:italic;}
-
-/* ARTICLE BODY */
 .article-body p{font-size:15px;line-height:1.9;color:#333;margin-bottom:18px;font-family:'Noto Serif Bengali',serif;}
 .article-body p:first-child::first-letter{font-size:48px;font-weight:900;float:left;line-height:0.85;margin:6px 8px 0 0;color:#1a1a1a;font-family:'Noto Serif Bengali',serif;}
 .article-body h3{font-family:'Noto Serif Bengali',serif;font-size:18px;font-weight:700;color:#1a1a1a;margin:28px 0 12px;}
 .article-body blockquote{border-left:3px solid #d4a857;padding:12px 18px;background:#faf8f4;margin:22px 0;border-radius:0 2px 2px 0;}
 .article-body blockquote p{font-size:14.5px;color:#555;font-style:italic;margin:0;}
-
-/* SHARE */
 .share-bar{display:flex;align-items:center;gap:10px;padding:18px 0;border-top:1px solid #e8e4dc;border-bottom:1px solid #e8e4dc;margin:24px 0;flex-wrap:wrap;}
 .share-lbl{font-size:11px;color:#999;letter-spacing:0.08em;}
 .share-btn{background:#f0ece6;border:1px solid #e0dbd2;border-radius:2px;padding:6px 14px;font-size:11.5px;color:#555;cursor:pointer;font-family:'Hind Siliguri',sans-serif;transition:background .15s;}
 .share-btn:hover{background:#e8e4dc;}
-
-/* SOURCE BOX */
 .source-box{background:#faf8f4;border:1px solid #e8e4dc;border-radius:2px;padding:14px 16px;margin-bottom:28px;display:flex;align-items:center;gap:12px;}
 .source-icon{width:36px;height:36px;background:#efece6;border-radius:2px;border:1px solid #e0dbd2;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .source-icon svg{opacity:0.3;}
-.source-info{}
 .source-name{font-size:12px;font-weight:600;color:#1a1a1a;margin-bottom:2px;}
-.source-url{font-size:10.5px;color:#8a6a2a;}
-
-/* RELATED NEWS */
+.source-url{font-size:10.5px;color:#8a6a2a;cursor:pointer;}
+.source-url:hover{text-decoration:underline;}
 .related-lbl{font-size:9px;letter-spacing:0.18em;font-weight:700;color:#888;text-transform:uppercase;border-bottom:2px solid #1a1a1a;padding-bottom:5px;margin-bottom:16px;}
 .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .related-card{background:#fff;border:1px solid #e8e4dc;border-radius:2px;padding:12px;cursor:pointer;}
@@ -88,8 +68,6 @@ a{text-decoration:none;color:inherit;}
 .rc-cat{font-size:9px;letter-spacing:0.1em;font-weight:700;color:#999;text-transform:uppercase;margin-bottom:3px;}
 .rc-title{font-family:'Noto Serif Bengali',serif;font-size:12.5px;font-weight:600;line-height:1.4;color:#1a1a1a;transition:color .15s;}
 .rc-meta{font-size:9.5px;color:#bbb;margin-top:4px;}
-
-/* SIDEBAR */
 .article-sidebar{}
 .sb-section{margin-bottom:24px;}
 .sb-lbl{font-size:9px;letter-spacing:0.18em;font-weight:700;color:#888;text-transform:uppercase;border-bottom:2px solid #1a1a1a;padding-bottom:5px;margin-bottom:12px;}
@@ -102,58 +80,32 @@ a{text-decoration:none;color:inherit;}
 .sb-cat{font-size:9px;letter-spacing:0.06em;color:#999;text-transform:uppercase;margin-bottom:2px;}
 .sb-title{font-family:'Noto Serif Bengali',serif;font-size:12px;font-weight:600;line-height:1.4;color:#1a1a1a;transition:color .15s;}
 .sb-time{font-size:9.5px;color:#bbb;margin-top:2px;}
-
-/* FOOTER */
 footer{background:#fff;border-top:2.5px solid #1a1a1a;padding:16px 20px;}
 .foot-in{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
-.foot-logo{font-family:'Noto Serif Bengali',serif;font-size:22px;font-weight:900;color:#1a1a1a;}
+.foot-logo{font-family:'Noto Serif Bengali',serif;font-size:22px;font-weight:900;color:#1a1a1a;cursor:pointer;}
 .foot-info{font-size:10.5px;color:#bbb;}
 .foot-links{display:flex;gap:16px;font-size:11px;color:#888;}
 .foot-links a:hover{color:#1a1a1a;}
-
-/* RESPONSIVE */
-@media(max-width:860px){
-  .article-layout{grid-template-columns:1fr;}
-  .article-sidebar{display:none;}
-  .related-grid{grid-template-columns:1fr 1fr;}
-  .article-title{font-size:22px;}
-}
-@media(max-width:500px){
-  .related-grid{grid-template-columns:1fr;}
-  .article-title{font-size:19px;}
-  .logo{font-size:28px;}
-}
-
-.nav{position:sticky;top:0;z-index:100;box-shadow:0 2px 6px rgba(0,0,0,0.12);}
-.brk{position:sticky;top:38px;z-index:99;}
-
-.srch{cursor:pointer;}
-.srch button{cursor:pointer;}
-.nav a{cursor:pointer;}
-.left-story{cursor:pointer;}
-.news-card{cursor:pointer;}
-.featured-card{cursor:pointer;}
-.news-list-item{cursor:pointer;}
-.result-card{cursor:pointer;}
-.hero-title{cursor:pointer;}
+@media(max-width:860px){.article-layout{grid-template-columns:1fr;}.article-sidebar{display:none;}.related-grid{grid-template-columns:1fr 1fr;}.article-title{font-size:22px;}}
+@media(max-width:500px){.related-grid{grid-template-columns:1fr;}.article-title{font-size:19px;}.logo{font-size:28px;}}
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <span>সোমবার, ২১ এপ্রিল ২০২৬ &nbsp;|&nbsp; ঢাকা <b>সকাল ১০টা</b> &nbsp;|&nbsp; লন্ডন <b>ভোর ৫টা</b></span>
+  <span>সোমবার, ২২ এপ্রিল ২০২৬ &nbsp;|&nbsp; ঢাকা <b>সকাল ১০টা</b> &nbsp;|&nbsp; লন্ডন <b>ভোর ৫টা</b></span>
   <span>ডলার <b>১১০.৫০ টাকা</b> &nbsp;|&nbsp; ইউরো <b>১১৮.২০ টাকা</b></span>
 </div>
 
 <div class="masthead">
   <div class="mast-in">
-    <div>
-      <div class="logo"><a href="/">বাংলা দর্পণ</a></div>
+    <div onclick="window.location='/'">
+      <div class="logo">বাংলা দর্পণ</div>
       <div class="tagline">বিশ্বের সকল বাংলাদেশি খবর — প্রতিদিন স্বয়ংক্রিয় আপডেট</div>
     </div>
     <div class="srch">
       <input type="text" placeholder="খবর খুঁজুন...">
-      <button onclick="window.location='/search.html'" ><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+      <button onclick="window.location='/search.html'"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
     </div>
   </div>
 </div>
@@ -162,7 +114,7 @@ footer{background:#fff;border-top:2.5px solid #1a1a1a;padding:16px 20px;}
   <a href="/">প্রচ্ছদ</a>
   <a href="/category.html?cat=bangladesh">বাংলাদেশ</a>
   <a href="/category.html?cat=diaspora">প্রবাসী</a>
-  <a href="#">অভিবাসন ও ভিসা</a>
+  <a href="/category.html?cat=migration">অভিবাসন ও ভিসা</a>
   <a href="/category.html?cat=politics">রাজনীতি</a>
   <a href="/category.html?cat=economy">অর্থনীতি</a>
   <a href="/category.html?cat=crime">অপরাধ</a>
@@ -170,56 +122,41 @@ footer{background:#fff;border-top:2.5px solid #1a1a1a;padding:16px 20px;}
   <a href="/category.html?cat=world">বিশ্ব</a>
 </div></div>
 
-<div class="wrap">
+<div class="brk"><div class="brk-in">
+  <span class="brk-b">ব্রেকিং</span>
+  <span class="brk-t">বাংলাদেশ ইউরোপীয় ইউনিয়নের সাথে নতুন বাণিজ্য চুক্তি স্বাক্ষর করেছে</span>
+</div></div>
 
+<div class="wrap">
   <div class="breadcrumb">
     <a href="/">প্রচ্ছদ</a>
     <span>›</span>
-    <a href="/category.html?cat=politics">রাজনীতি</a>
+    <span id="breadCat">সংবাদ</span>
     <span>›</span>
-    <span>সংস্কার আলোচনা স্থবির</span>
+    <span id="breadTitle">বিস্তারিত</span>
   </div>
 
   <div class="article-layout">
-
     <div class="article-main">
-
-      <div class="article-cat">রাজনীতি</div>
-      <div class="article-title">সংস্কার আলোচনা স্থবির — নির্বাচনের সময়সীমা নিয়ে অনিশ্চয়তা বাড়ছে</div>
-      <div class="article-deck">কূটনৈতিক সূত্র জানিয়েছে, জোট অংশীদাররা মূল সাংবিধানিক সংশোধনীতে একমত হতে পারছেন না।</div>
-
+      <div class="article-cat" id="articleCat">রাজনীতি</div>
+      <div class="article-title" id="articleTitle">সংস্কার আলোচনা স্থবির — নির্বাচনের সময়সীমা নিয়ে অনিশ্চয়তা বাড়ছে</div>
+      <div class="article-deck" id="articleDeck">কূটনৈতিক সূত্র জানিয়েছে, জোট অংশীদাররা মূল সাংবিধানিক সংশোধনীতে একমত হতে পারছেন না।</div>
       <div class="article-meta">
-        <span class="source-tag">দ্য ডেইলি স্টার</span>
+        <span class="source-tag" id="articleSource">দ্য ডেইলি স্টার</span>
         <span class="meta-dot">·</span>
-        <span>thedailystar.net</span>
-        <span class="meta-dot">·</span>
-        <span>২১ এপ্রিল ২০২৬</span>
+        <span id="articleDate">২২ এপ্রিল ২০২৬</span>
         <span class="meta-dot">·</span>
         <span>৫ মিনিটের পড়া</span>
       </div>
-
       <div class="article-img">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <span class="article-img-lbl">সংবাদের ছবি</span>
+        <span class="article-img-lbl" id="articleImgLbl">সংবাদের ছবি</span>
       </div>
-      <div class="img-caption">ছবি: রয়টার্স — ঢাকায় সংসদ ভবনের সামনে বিক্ষোভকারীরা</div>
-
-      <div class="article-body">
-        <p>বাংলাদেশের অন্তর্বর্তী সরকার সাংবিধানিক সংস্কার নিয়ে জোট অংশীদারদের সাথে দীর্ঘ আলোচনা চালিয়ে যাচ্ছে। তবে কূটনৈতিক সূত্রগুলো জানাচ্ছে যে মূল সংশোধনীগুলোতে এখনও ঐকমত্য হয়নি, যা বছরের শেষ নাগাদ প্রত্যাশিত নির্বাচনের সময়সীমাকে অনিশ্চিত করে তুলছে।</p>
-
-        <h3>কোথায় আটকে আছে আলোচনা?</h3>
-
-        <p>সরকারের ঘনিষ্ঠ সূত্রগুলো জানাচ্ছে, নির্বাচন কমিশন গঠন এবং ভোটার তালিকা হালনাগাদের বিষয়ে এখনও মতবিরোধ রয়েছে। বিরোধী দলগুলো দাবি করছে নিরপেক্ষ তত্ত্বাবধায়ক সরকার ছাড়া নির্বাচনে অংশ নেবে না।</p>
-
-        <blockquote>
-          <p>"আমরা একটি অবাধ ও সুষ্ঠু নির্বাচনের জন্য প্রতিশ্রুতিবদ্ধ, তবে সব পক্ষের সম্মতি প্রয়োজন।" — সরকারি মুখপাত্র</p>
-        </blockquote>
-
-        <p>আন্তর্জাতিক পর্যবেক্ষকরা বলছেন, যদি ডিসেম্বরের মধ্যে নির্বাচন না হয় তাহলে দেশের রাজনৈতিক অস্থিরতা আরও বাড়তে পারে। জাতিসংঘের বিশেষ দূত গত সপ্তাহে ঢাকা সফর করে সব পক্ষকে সংলাপে বসার আহ্বান জানিয়েছেন।</p>
-
-        <h3>প্রবাসীদের প্রতিক্রিয়া</h3>
-
-        <p>সুইডেন, যুক্তরাজ্য ও যুক্তরাষ্ট্রে বসবাসরত বাংলাদেশি প্রবাসীরা এই পরিস্থিতি নিয়ে উদ্বিগ্ন। অনেকেই সোশ্যাল মিডিয়ায় দ্রুত নির্বাচনের দাবি জানাচ্ছেন এবং দেশের স্থিতিশীলতার জন্য প্রার্থনা করছেন।</p>
+      <div class="img-caption" id="articleCaption">ছবি: সংগৃহীত</div>
+      <div class="article-body" id="articleBody">
+        <p>বাংলাদেশের অন্তর্বর্তী সরকার সাংবিধানিক সংস্কার নিয়ে জোট অংশীদারদের সাথে দীর্ঘ আলোচনা চালিয়ে যাচ্ছে। তবে কূটনৈতিক সূত্রগুলো জানাচ্ছে যে মূল সংশোধনীগুলোতে এখনও ঐকমত্য হয়নি।</p>
+        <p>সরকারের ঘনিষ্ঠ সূত্রগুলো জানাচ্ছে, নির্বাচন কমিশন গঠন এবং ভোটার তালিকা হালনাগাদের বিষয়ে এখনও মতবিরোধ রয়েছে।</p>
+        <p>আন্তর্জাতিক পর্যবেক্ষকরা বলছেন, যদি ডিসেম্বরের মধ্যে নির্বাচন না হয় তাহলে দেশের রাজনৈতিক অস্থিরতা আরও বাড়তে পারে।</p>
       </div>
 
       <div class="share-bar">
@@ -233,14 +170,14 @@ footer{background:#fff;border-top:2.5px solid #1a1a1a;padding:16px 20px;}
 
       <div class="source-box">
         <div class="source-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
-        <div class="source-info">
-          <div class="source-name">মূল সংবাদ: The Daily Star</div>
-          <div class="source-url" onclick="window.open('https://thedailystar.net')" style="cursor:pointer;">thedailystar.net · ২১ এপ্রিল ২০২৬ ↗</div>
+        <div>
+          <div class="source-name" id="sourceName">মূল সংবাদ: The Daily Star</div>
+          <div class="source-url" id="sourceUrl">thedailystar.net</div>
         </div>
       </div>
 
       <div class="related-lbl">আরও পড়ুন</div>
-      <div class="related-grid">
+      <div class="related-grid" id="relatedGrid">
         <div class="related-card" onclick="window.location='/category.html'">
           <div class="rc-thumb"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
           <div class="rc-cat">অর্থনীতি</div>
@@ -254,7 +191,7 @@ footer{background:#fff;border-top:2.5px solid #1a1a1a;padding:16px 20px;}
           <div class="rc-meta">bbc.com/bangla · ৬ ঘণ্টা আগে</div>
         </div>
         <div class="related-card" onclick="window.location='/category.html'">
-          <div class="rc-thumb"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+          <div class="rc-thumb"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg></div>
           <div class="rc-cat">অপরাধ</div>
           <div class="rc-title">ঢাকার দুর্নীতি মামলায় হাইকোর্টের নতুন তদন্তের নির্দেশ</div>
           <div class="rc-meta">prothomalo.com · ৮ ঘণ্টা আগে</div>
@@ -262,49 +199,93 @@ footer{background:#fff;border-top:2.5px solid #1a1a1a;padding:16px 20px;}
         <div class="related-card" onclick="window.location='/category.html'">
           <div class="rc-thumb"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
           <div class="rc-cat">প্রবাসী</div>
-          <div class="rc-title">সুইডেনে বাংলাদেশিদের জন্য নতুন ইন্টিগ্রেশন কর্মসূচি ঘোষণা</div>
+          <div class="rc-title">সুইডেনে বাংলাদেশিদের জন্য নতুন ইন্টিগ্রেশন কর্মসূচি</div>
           <div class="rc-meta">sverigesradio.se · ৩০ মিনিট আগে</div>
         </div>
       </div>
-
     </div>
 
-    <!-- SIDEBAR -->
     <div class="article-sidebar">
       <div class="ad-box">[ বিজ্ঞাপন ]</div>
       <div class="sb-section">
         <div class="sb-lbl">সর্বশেষ খবর</div>
-        <div class="sb-item" onclick="window.location='/article.html'">
+        <div class="sb-item" id="asb0">
           <div class="sb-thumb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-          <div><div class="sb-cat">প্রবাসী</div><div class="sb-title">সুইডেনে নতুন ইন্টিগ্রেশন কর্মসূচি</div><div class="sb-time">sverigesradio.se · ৩০ মি.</div></div>
+          <div><div class="sb-cat">প্রবাসী</div><div class="sb-title">সুইডেনে নতুন ইন্টিগ্রেশন কর্মসূচি</div><div class="sb-time">৩০ মি. আগে</div></div>
         </div>
-        <div class="sb-item" onclick="window.location='/article.html'">
+        <div class="sb-item" id="asb1">
           <div class="sb-thumb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-          <div><div class="sb-cat">অর্থনীতি</div><div class="sb-title">পোশাক খাতে ১২% রপ্তানি প্রবৃদ্ধি</div><div class="sb-time">thefinancialexpress.com · ১ ঘণ্টা</div></div>
+          <div><div class="sb-cat">অর্থনীতি</div><div class="sb-title">পোশাক খাতে ১২% রপ্তানি প্রবৃদ্ধি</div><div class="sb-time">১ ঘণ্টা আগে</div></div>
         </div>
-        <div class="sb-item" onclick="window.location='/article.html'">
+        <div class="sb-item" id="asb2">
           <div class="sb-thumb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><div class="sb-cat">অভিবাসন</div><div class="sb-title">কানাডায় বাংলাদেশি দক্ষ কর্মীদের নতুন সুযোগ</div><div class="sb-time">cic.gc.ca · ৩ ঘণ্টা</div></div>
+          <div><div class="sb-cat">অভিবাসন</div><div class="sb-title">কানাডায় বাংলাদেশি দক্ষ কর্মীদের নতুন সুযোগ</div><div class="sb-time">৩ ঘণ্টা আগে</div></div>
         </div>
-        <div class="sb-item" onclick="window.location='/article.html'">
+        <div class="sb-item" id="asb3">
           <div class="sb-thumb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
-          <div><div class="sb-cat">বিশ্ব</div><div class="sb-title">যুক্তরাজ্যের শীর্ষ ৪০ তালিকায় বাংলাদেশি চিকিৎসক</div><div class="sb-time">theguardian.com · ৭ ঘণ্টা</div></div>
+          <div><div class="sb-cat">বিশ্ব</div><div class="sb-title">যুক্তরাজ্যের শীর্ষ ৪০ তালিকায় বাংলাদেশি চিকিৎসক</div><div class="sb-time">৭ ঘণ্টা আগে</div></div>
         </div>
-        <div class="sb-item" onclick="window.location='/article.html'">
+        <div class="sb-item" id="asb4">
           <div class="sb-thumb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12s1-4 4-4 4 4 4 4-1 4-4 4-4-4-4-4z"/></svg></div>
-          <div><div class="sb-cat">ক্রিকেট</div><div class="sb-title">সাকিবের পাঁচ উইকেটে নিউজিল্যান্ডকে হারাল বাংলাদেশ</div><div class="sb-time">espncricinfo.com · ১ ঘণ্টা</div></div>
+          <div><div class="sb-cat">ক্রিকেট</div><div class="sb-title">সাকিবের পাঁচ উইকেটে নিউজিল্যান্ডকে হারাল বাংলাদেশ</div><div class="sb-time">১ ঘণ্টা আগে</div></div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
 <footer><div class="foot-in">
-  <div class="foot-logo"><a href="/">বাংলা দর্পণ</a></div>
+  <div class="foot-logo" onclick="window.location='/'">বাংলা দর্পণ</div>
   <div class="foot-info">প্রতি ৮ ঘণ্টায় আপডেট · সকল সূত্র উল্লেখিত · © ২০২৬ bdarpon.com</div>
   <div class="foot-links"><a href="/about.html">সম্পর্কে</a><a href="/contact.html">যোগাযোগ</a><a href="#">গোপনীয়তা</a></div>
 </div></footer>
 
-<script>window.addEventListener("scroll",function(){var m=document.querySelector(".masthead");if(window.scrollY>60){m.classList.add("shrunk")}else{m.classList.remove("shrunk")}});</script></body>
+<script>
+async function loadArticle() {
+  try {
+    const article = JSON.parse(localStorage.getItem('currentArticle'));
+    if (!article) return;
+
+    document.getElementById('articleTitle').textContent = article.title;
+    document.getElementById('articleDeck').textContent = article.summary;
+    document.getElementById('articleCat').textContent = article.category;
+    document.getElementById('articleImgLbl').textContent = article.category;
+    document.getElementById('articleSource').textContent = article.source;
+    document.getElementById('articleDate').textContent = article.published_at;
+    document.getElementById('breadCat').textContent = article.category;
+    document.getElementById('breadTitle').textContent = article.title.substring(0, 30) + '...';
+    document.getElementById('sourceName').textContent = 'মূল সংবাদ: ' + article.source;
+    document.getElementById('sourceUrl').textContent = article.source_url;
+    document.getElementById('sourceUrl').onclick = () => window.open(article.source_url);
+    document.getElementById('articleCaption').textContent = 'সূত্র: ' + article.source;
+    document.title = article.title + ' | বাংলা দর্পণ';
+
+    const body = document.getElementById('articleBody');
+    if (article.body) {
+      body.innerHTML = article.body
+        .split('\n\n')
+        .filter(p => p.trim())
+        .map(p => `<p>${p.trim()}</p>`)
+        .join('');
+    }
+
+    const res = await fetch('/news.json');
+    const news = await res.json();
+    const related = news.filter(n => n.id !== article.id).slice(0, 4);
+    related.forEach((item, i) => {
+      const el = document.getElementById('asb' + i);
+      if (!el) return;
+      el.querySelector('.sb-title').textContent = item.title;
+      el.querySelector('.sb-cat').textContent = item.category;
+      el.querySelector('.sb-time').textContent = item.source + ' · ' + item.published_at;
+      el.onclick = () => { localStorage.setItem('currentArticle', JSON.stringify(item)); window.location='/article.html'; };
+    });
+
+  } catch(e) { console.log('Article error:', e); }
+}
+loadArticle();
+</script>
+
+<script>window.addEventListener("scroll",function(){var m=document.querySelector(".masthead");if(window.scrollY>60){m.classList.add("shrunk")}else{m.classList.remove("shrunk")}});</script>
+</body>
 </html>
