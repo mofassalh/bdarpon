@@ -1,15 +1,15 @@
 import feedparser
-import anthropic
 import json
 import os
+import urllib.request
+import urllib.error
 from datetime import datetime
 
-client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
 RSS_FEEDS = [
     {"url": "https://www.thedailystar.net/rss.xml", "source": "The Daily Star", "category": "bangladesh"},
     {"url": "https://bdnews24.com/feed", "source": "bdnews24", "category": "bangladesh"},
-    {"url": "https://www.prothomalo.com/feed", "source": "Prothom Alo", "category": "bangladesh"},
     {"url": "https://feeds.bbci.co.uk/bengali/rss.xml", "source": "BBC Bangla", "category": "world"},
     {"url": "https://www.thedailystar.net/diaspora/rss.xml", "source": "The Daily Star", "category": "diaspora"},
 ]
@@ -32,37 +32,41 @@ def detect_category(title, summary):
                 return cat
     return "bangladesh"
 
-def rewrite_with_claude(title, summary, source):
-    prompt = f"""তুমি একজন বাংলা সংবাদ সম্পাদক। নিচের ইংরেজি সংবাদটি পড়ো এবং বাংলায় পুনর্লিখন করো।
+def rewrite_with_gemini(title, summary, source):
+    import json as json_mod
+    
+    prompt = f"""তুমি একজন বাংলা সংবাদ সম্পাদক। নিচের সংবাদটি পড়ো এবং বাংলায় পুনর্লিখন করো।
 
 মূল শিরোনাম: {title}
 মূল সংবাদ: {summary}
 সূত্র: {source}
 
 নিয়ম:
-1. সম্পূর্ণ নিজের ভাষায় লিখবে, copy করবে না
+1. সম্পূর্ণ নিজের ভাষায় লিখবে
 2. সহজ ও প্রাঞ্জল বাংলায় লিখবে
 3. তথ্য সঠিক রাখবে
-4. JSON format এ দেবে
 
-এই format এ দাও:
+এই JSON format এ দাও, অন্য কিছু না:
 {{
   "title": "বাংলা শিরোনাম",
   "summary": "২-৩ লাইনের বাংলা সারসংক্ষেপ",
   "body": "৩-৪ প্যারার বিস্তারিত বাংলা সংবাদ"
-}}
+}}"""
 
-শুধু JSON দাও, অন্য কিছু না।"""
-
-    message = client.messages.create(
-        model="claude-sonnet-4-5",
-        max_tokens=1000,
-        messages=[{"role": "user", "content": prompt}]
-    )
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
     
-    response = message.content[0].text.strip()
-    response = response.replace("```json", "").replace("```", "").strip()
-    return json.loads(response)
+    data = json_mod.dumps({
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 1000}
+    }).encode("utf-8")
+    
+    req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
+    response = urllib.request.urlopen(req, timeout=30)
+    result = json_mod.loads(response.read().decode("utf-8"))
+    
+    text = result["candidates"][0]["content"]["parts"][0]["text"]
+    text = text.replace("```json", "").replace("```", "").strip()
+    return json_mod.loads(text)
 
 def main():
     existing_news = []
@@ -84,13 +88,13 @@ def main():
                 link = entry.get("link", "")
                 
                 if title in existing_titles:
-                    print(f"Skipping duplicate: {title[:50]}")
+                    print(f"Skipping: {title[:50]}")
                     continue
                 
                 print(f"Rewriting: {title[:50]}")
                 
                 try:
-                    rewritten = rewrite_with_claude(title, summary, feed_info["source"])
+                    rewritten = rewrite_with_gemini(title, summary, feed_info["source"])
                     category = detect_category(title, summary)
                     
                     article = {
@@ -110,11 +114,11 @@ def main():
                     print(f"Done: {rewritten['title'][:50]}")
                     
                 except Exception as e:
-                    print(f"Error rewriting: {e}")
+                    print(f"Error: {e}")
                     continue
                     
         except Exception as e:
-            print(f"Error fetching {feed_info['source']}: {e}")
+            print(f"Feed error {feed_info['source']}: {e}")
             continue
     
     all_news = new_articles + existing_news
@@ -123,8 +127,8 @@ def main():
     with open("news.json", "w", encoding="utf-8") as f:
         json.dump(all_news, f, ensure_ascii=False, indent=2)
     
-    print(f"\nTotal: {len(new_articles)} new articles added")
-    print(f"Total in news.json: {len(all_news)}")
+    print(f"\nNew: {len(new_articles)} articles")
+    print(f"Total: {len(all_news)}")
 
 if __name__ == "__main__":
     main()
