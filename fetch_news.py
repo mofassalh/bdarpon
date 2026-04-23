@@ -1,11 +1,19 @@
 import feedparser
 import json
 import os
-import urllib.request
-import urllib.error
+import requests
 import ssl
 import time
 from datetime import datetime
+
+# Load .env file
+if os.path.exists('.env'):
+    with open('.env') as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith('#') and '=' in line:
+                key, val = line.split('=', 1)
+                os.environ[key.strip()] = val.strip().strip('"').strip("'")
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
@@ -19,6 +27,8 @@ RSS_FEEDS = [
 ]
 
 def get_feed(url):
+    import urllib.request
+    import urllib.error
     ctx = ssl.create_default_context()
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
@@ -28,11 +38,13 @@ def get_feed(url):
     return feedparser.parse(response.read())
 
 def rewrite_with_gemini(title, summary, source):
-    prompt = f"""তুমি একজন বাংলা সংবাদ সম্পাদক। নিচের সংবাদটি বাংলায় পুনর্লিখন করো।
+    prompt = f"""তুমি একজন বাংলা সংবাদ সম্পাদক। নিচের সংবাদটি বাংলায় সারসংক্ষেপ করো।
 
 শিরোনাম: {title}
 সংবাদ: {summary[:400]}
 সূত্র: {source}
+
+গুরুত্বপূর্ণ: মূল সংবাদ copy করবে না, নিজের ভাষায় লিখবে।
 
 শুধু এই JSON দাও:
 {{
@@ -42,25 +54,23 @@ def rewrite_with_gemini(title, summary, source):
 }}"""
 
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
-    ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
 
-    data = json.dumps({
+    payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 1000}
-    }).encode("utf-8")
+        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 800}
+    }
 
-    req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
-    opener = urllib.request.build_opener(urllib.request.HTTPSHandler(context=ctx))
-    response = opener.open(req, timeout=30)
-    result = json.loads(response.read().decode("utf-8"))
+    response = requests.post(url, json=payload, timeout=30)
+    response.raise_for_status()
+    result = response.json()
 
     text = result["candidates"][0]["content"]["parts"][0]["text"]
     text = text.replace("```json", "").replace("```", "").strip()
     return json.loads(text)
 
 def main():
+    print(f"API Key: {'SET' if GEMINI_API_KEY else 'NOT SET'}")
+
     existing_news = []
     if os.path.exists("news.json"):
         with open("news.json", "r", encoding="utf-8") as f:
@@ -71,7 +81,7 @@ def main():
 
     for feed_info in RSS_FEEDS:
         try:
-            print(f"Fetching: {feed_info['category']}")
+            print(f"\nFetching: {feed_info['category']}")
             feed = get_feed(feed_info["url"])
             print(f"Found: {len(feed.entries)} entries")
 
@@ -105,11 +115,11 @@ def main():
 
                     new_articles.append(article)
                     print(f"Done: {rewritten['title'][:50]}")
-                    time.sleep(4)
+                    time.sleep(5)
 
                 except Exception as e:
                     print(f"Error: {e}")
-                    time.sleep(5)
+                    time.sleep(6)
                     continue
 
         except Exception as e:
